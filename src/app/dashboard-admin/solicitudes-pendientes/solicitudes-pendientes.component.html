@@ -1,0 +1,43 @@
+<div class="solicitudes-pendientes">
+
+  <!-- Título y buscador -->
+  <div class="display-flex">
+    <div>
+      <h3>Solicitudes pendientes</h3>
+  
+      <!-- Divisor -->
+      <div class="divider"></div>
+    </div>
+      
+    <div class="buscador-body">
+      <div class="buscador">
+        <span class="icon"><i class="material-icons">search</i></span>
+        <input type="search" id="search" placeholder="Buscar" [(ngModel)]="searchText" />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tabla de usuarios -->
+  <table responsive-table>
+    <thead>
+      <tr class="white-text">
+        <th>Evento</th>
+        <th class="display-none1">Segmento de red</th>
+        <th class="display-none1">Líder</th>
+        <th class="button-width"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredUsers">
+        <td>{{ item.event }}</td>
+        <td class="display-none1">{{ item.red }}</td>
+        <td class="display-none1">{{ item.lider }}</td>
+        <td class="button-width">
+          <a class="waves-effect btn-small blue">
+            Atender
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,60 @@
+/* globales */
+h3, h4, a, mat-icon { color: #FFFFFF; }
+
+/* Body */
+.background-image {
+  background-image: url('../../../../assets/img/global/background-login.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+.body {
+  backdrop-filter: blur(10px);
+  background: #ffffff2e;
+  border-radius: 1rem;
+  margin: 4rem auto;
+  padding: 3rem 5rem;
+  text-align: center;
+  width: 35rem;
+}
+.form-background {
+  background: linear-gradient(-45deg, #ffffffcd, #3c9ae7ea, #1c3674e2, #000000da);
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  width: 100%;
+}
+.form-background img {
+  height: 10rem;
+  width: 10rem;
+}
+.form-background h3 { margin-top: 1rem; }
+.form-background mat-icon { margin: 1.5rem 0 0 1rem; }
+.form-background form { padding: 1rem 0 2rem 0; }
+.input-field input:focus {
+  border-bottom: 1px solid #FFFFFF !important;
+  box-shadow: 0 1px 0 0 #FFFFFF!important;
+}
+.form-background button { 
+  margin-top: 1rem;
+  width: 10rem; 
+}
+
+@media (max-width: 540px) {
+
+  .body { 
+    backdrop-filter: blur(1px);
+    border-radius: 0; 
+    padding: 6rem 2rem;
+    margin: 0;
+    width: 100%;
+  }
+  .form-background { 
+    margin: 0 auto !important;
+    padding: 5rem 2rem 3.5rem 2rem;
+    width: 20rem; 
+  }
+  .form-background h3 { font-size: 2rem; }
+  .form-background h4 { font-size: 1.3rem; }
+  .form-background mat-icon { margin-left: 1.6rem; }
+
+}

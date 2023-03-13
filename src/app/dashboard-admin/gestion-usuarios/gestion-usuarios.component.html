@@ -1,0 +1,73 @@
+<div class="gestion-usuario">
+
+  <!-- Título y buscador -->
+  <div class="display-flex">
+    <div>
+      <h3>Gestión de usuarios</h3>
+
+      <!-- Divisor -->
+      <div class="divider"></div>
+    </div>
+
+    <div class="buscador-body">
+      <div class="buscador">
+        <span class="icon"><i class="material-icons">search</i></span>
+        <input type="search" id="search" placeholder="Buscar" [(ngModel)]="searchText" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de usuarios -->
+  <table responsive-table>
+    <thead>
+      <tr class="white-text">
+        <th>#</th>
+        <th>Nombre y apellido</th>
+        <th class="display-none1">Usuario</th>
+        <th class="display-none1">Rol</th>
+        <th class="button-width"></th>
+        <th class="button-width"></th>
+        <th class="button-width"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredUsers; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td class="display-none1">{{ item.username }}</td>
+        <td class="display-none1">{{ item.role }}</td>
+        <td class="button-width">
+          <a class="waves-effect btn-small info">
+            <i class="material-icons">
+              feed
+            </i>
+          </a>
+        </td>
+        <td class="button-width">
+          <a class="waves-effect btn-small blue">
+            <i class="material-icons">
+              edit
+            </i>
+          </a>
+        </td>
+        <td class="button-width">
+          <a class="waves-effect btn-small red">
+            <i class="material-icons">
+              delete
+            </i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Botones inferiores -->
+  <div class="add-button">
+    <a class="waves-effect waves-light btn-small green">
+      <i class="material-icons right">
+        add_circle_outline
+      </i>
+      Agregar usuario
+    </a>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<!-- Menú servicio técnico -->
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="push" class="dark-blue-bg">
+    
+  <!-- Header (barra de arriba del lado del menú) -->
+  <mat-toolbar color="primary" class="dark-blue-bg">
+    <h4>Menú</h4>
+    
+    <!-- Botón para que se muestre el sidenav -->
+    <button 
+      class="left-auto openCloseButton"
+      mat-icon-button
+      (click)="sidenav.toggle()"> 
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+    
+  <!-- Lista de funciones del administrador -->
+  <mat-nav-list>
+    <mat-accordion>
+  
+      <!-- Opciones de solicitudes (Desplegables) -->
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+  
+        <!-- Donde esta el título y el botón desplegable -->
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="white-text">notifications</mat-icon>
+              <h6 class="white-text">Solicitudes</h6>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+  
+          <!-- Enlaces -->
+          <a routerLink="solicitar" class="link-option-height">
+            <mat-icon class="white-text">add</mat-icon>
+            <h6 class="white-text option-height">Nueva solicitud</h6>
+          </a>
+          <a routerLink="solicitudes" class="link-option-height">
+            <mat-icon class="white-text">done</mat-icon>
+            <h6 class="white-text option-height">Lista de solicitudes</h6>
+          </a>
+  
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+    
+  <!-- Botón para abrir el menú -->
+  <mat-toolbar class="dark-blue-bg">
+    <button 
+      class="openCloseButton"
+      mat-icon-button
+      (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+        
+    <h5>GeoTech</h5>
+    <span class="left-auto">usuario</span>
+    
+    <button 
+      mat-button
+      (click)="logout()">
+      Logout
+    </button>
+  </mat-toolbar>
+    
+  <!-- Cuerpo de la aplicación -->
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div>
+    
+</mat-sidenav-container>

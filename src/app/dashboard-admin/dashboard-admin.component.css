@@ -1,0 +1,48 @@
+/* Globales */
+.dark-blue-bg, 
+.openCloseButton:focus,
+mat-expansion-panel-header:focus,
+mat-expansion-panel-header,
+::ng-deep .mat-expansion-panel-body { 
+  background: #1B4970 !important; 
+}
+.icon { margin-top: 0.45rem !important; }
+
+/* Sidenav y Toolbar */
+mat-sidenav { width: 18rem; }
+mat-toolbar { color: #FFFFFF !important; }
+
+/* Menú */ 
+mat-expansion-panel { 
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+mat-icon { margin: 0 0.7rem 0 0; }
+mat-expansion-panel 
+.option-height { 
+  height: 2rem !important; 
+  margin: 0;
+  padding: 0.3rem 2.5rem 0.3rem 0 !important;
+}
+.link-option-height {
+  display: flex;
+  padding: 0.5rem 2rem 0.5rem 1.2rem !important;
+}
+.link-option-height:hover { background: #133756 !important; }
+mat-expansion-panel-header { padding: 0 2.5rem 0 1.2rem; }
+mat-expansion-panel-header:hover { background: #133756 !important; }
+
+/* Estilos personalizados a las clases de Material */
+::ng-deep .mat-expansion-panel-body { padding: 0 !important; }
+::ng-deep .mat-expansion-indicator::after { color: #FFFFFF !important; }
+
+/* Body */
+.body { margin: 3rem 4.3rem; }
+
+/* Pantallas pequeñas */
+@media (max-width: 720px) {
+
+  /* Body */
+  .body { margin: 1rem 2rem; }
+
+}

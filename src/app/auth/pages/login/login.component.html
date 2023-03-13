@@ -1,0 +1,60 @@
+<div class="login">
+  <div class="background-image display-flex">
+
+    <!-- Lado izquierdo -->
+    <div class="login-information">
+      <h1>GeoTech</h1>
+      <h2>Alguna descripcion breve para la aplicacion algo como un eslogan o como sea</h2>
+    </div>
+
+    <!-- Lado derecho -->
+    <div class="login-body">
+      <div class="form-background">
+
+        <!-- Formulario de inicio de sesión -->
+        <h4>Iniciar sesión</h4>
+        <form [formGroup]="formulario" (ngSubmit)="iniciarSesion()">
+
+          <!-- Campo del usuario -->
+          <div class="input-field">
+            <input 
+              type="text" 
+              class="white-text"
+              formControlName="username"
+            >
+            <label class="white-text">Usuario</label>
+
+            <!-- Mensaje de error -->
+            <span *ngIf="campoNoValido('username')">Formato incorrecto</span>
+          </div>
+
+          <!-- Campo de la contraseña -->
+          <div class="input-field">
+            <input  
+              type="password" 
+              class="white-text"
+              formControlName="password"
+            >
+            <label class="white-text">Contraseña</label>
+          
+            <!-- Mensaje de error -->
+            <span *ngIf="campoNoValido('password')">Mínimo 8 caracteres</span>
+          </div>
+
+          <!-- Botón de ingresar -->
+          <button 
+            type="submit"
+            mat-raised-button 
+            [disabled]="formulario.invalid">
+            Ingresar
+          </button>
+
+        </form>
+
+        <!-- Redirecciona a la pantalla de gestión de usuario -->
+        <a routerLink="../gestion-usuario">¿Olvidó su contraseña?</a>
+
+      </div>
+    </div>
+  </div>
+</div>
