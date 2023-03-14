@@ -13,6 +13,10 @@ export class VerSolicitudComponent {
     { event: 'Secundaria sin potencia', red: '2FP-6-4', lider: 'Fulanito detal', date: '12-03-2022' },
     { event: 'Noloserick', red: '6FP-6-5', lider: 'Otro carajo', date: '12-03-2022' },
     { event: 'Se fue la lu', red: '9FP-7-4', lider: 'Uno mas xd', date: '13-03-2022' },
+    { event: 'Se fue la lu', red: '9FP-7-4', lider: 'Uno mas xd', date: '13-03-2022' },
+    { event: 'Se fue la lu', red: '9FP-7-4', lider: 'Uno mas xd', date: '13-03-2022' },
+    { event: 'Se fue la lu', red: '9FP-7-4', lider: 'Uno mas xd', date: '13-03-2022' },
+    { event: 'Se fue la lu', red: '9FP-7-4', lider: 'Uno mas xd', date: '13-03-2022' },
  
   ];
 
