@@ -1,0 +1,93 @@
+/* Global */
+.crear-solicitud {
+  height: auto;
+}
+h3, h5, h6 { 
+  color: #1B4970; 
+  text-align: center;
+}
+
+/* Borde */
+.borde {
+  border: #1B4970 0.15rem solid;
+  height: auto !important;
+  margin-top: 2rem;
+  padding: 3rem 5rem 3rem 5rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Información */
+.informacion {
+  margin: 1.7rem 0 3rem 0;
+  padding: 1rem 2rem;
+}
+.informacion .personal {
+  width: 50%;
+}
+
+/* Archivos */
+.file-field {
+  margin: 2rem 0 3rem 0;
+  padding: 1.4rem;
+}
+.input-field {
+  background: #FFFFFF;
+  border: 0.1rem #1B4970 solid;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+}
+.file-field a {
+  color: #039be5;
+  margin: 0.3rem auto;
+}
+.file-field a:hover {
+  color: #1B4970;
+}
+
+/* Observaciones */
+.text-left {
+  margin-top: 0;
+  text-align: left;
+}
+.observaciones ,
+.informacion {
+  border: 0.1rem #1B4970 solid;
+  border-radius: 0.3rem;
+  height: auto;
+}
+.observaciones {
+  margin: 2rem 0 0 0;
+  padding: 2rem;
+  text-align: justify;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 720px) {
+
+  /* Global */
+  h3 { font-size: 2rem; }
+  
+  /* Borde */
+  .borde {
+    border: none;
+    padding: 0.4rem 0 1.4rem 0;
+  }
+
+}
+
+@media (max-width: 610px) {
+
+  /* Información */
+  .info-personal {
+    flex-direction: column;
+  }
+  .info-personal .personal {
+    margin: 0.5rem auto;
+    width: 100%;
+  }
+
+}

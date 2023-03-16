@@ -24,4 +24,6 @@ export class SolicitudesPendientesComponent {
     });
   }
 
+  solicitud: any = 1;
+
 }

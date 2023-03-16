@@ -10,13 +10,17 @@ import { MaterialModule } from '../material/material.module';
 import { DashboardUserComponent } from './dashboard-user.component';
 import { CrearSolicitudComponent } from './crear-solicitud/crear-solicitud.component';
 import { VerSolicitudComponent } from './ver-solicitud/ver-solicitud.component';
+import { DetallesSolicitudComponent } from './detalles-solicitud/detalles-solicitud.component';
+import { EditarSolicitudComponent } from './editar-solicitud/editar-solicitud.component';
 
 
 @NgModule({
   declarations: [
     DashboardUserComponent,
     CrearSolicitudComponent,
-    VerSolicitudComponent
+    VerSolicitudComponent,
+    DetallesSolicitudComponent,
+    EditarSolicitudComponent
   ],
   imports: [
     CommonModule,

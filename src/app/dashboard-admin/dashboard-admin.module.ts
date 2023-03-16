@@ -11,6 +11,7 @@ import { DashboardAdminComponent } from './dashboard-admin.component';
 import { GestionUsuariosComponent } from './gestion-usuarios/gestion-usuarios.component';
 import { SolicitudesPendientesComponent } from './solicitudes-pendientes/solicitudes-pendientes.component';
 import { SolicitudesProcesadasComponent } from './solicitudes-procesadas/solicitudes-procesadas.component';
+import { AtenderSolicitudesComponent } from './atender-solicitudes/atender-solicitudes.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SolicitudesProcesadasComponent } from './solicitudes-procesadas/solicit
     GestionUsuariosComponent,
     SolicitudesPendientesComponent,
     SolicitudesProcesadasComponent,
+    AtenderSolicitudesComponent,
   ],
   imports: [
     CommonModule,

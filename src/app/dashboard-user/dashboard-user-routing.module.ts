@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Componentes
-import { DashboardUserComponent } from './dashboard-user.component';
 import { CrearSolicitudComponent } from './crear-solicitud/crear-solicitud.component';
+import { DashboardUserComponent } from './dashboard-user.component';
+import { DetallesSolicitudComponent } from './detalles-solicitud/detalles-solicitud.component';
+import { EditarSolicitudComponent } from './editar-solicitud/editar-solicitud.component';
 import { VerSolicitudComponent } from './ver-solicitud/ver-solicitud.component';
 
 
@@ -19,6 +21,14 @@ const routes: Routes = [
       {
         path: 'solicitudes',
         component: VerSolicitudComponent
+      },
+      {
+        path: 'detalles/:id',
+        component: DetallesSolicitudComponent
+      },
+      {
+        path: 'editar/:id',
+        component: EditarSolicitudComponent
       },
       {
         path: '**',

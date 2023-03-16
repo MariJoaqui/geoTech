@@ -37,5 +37,11 @@ a { text-decoration: none; }
   margin: 0.5rem 0;
   width: 8rem;
 }
+.divider-line {
+  background: #c7c7c7;
+  height: 0.05rem;
+  margin: 1rem auto;
+  width: 100%;
+}
 
 /* Color y Background */
