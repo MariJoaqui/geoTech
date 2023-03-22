@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class DashboardAdminComponent {
 
+  solicitud: number = 1;
   // MatExpansion
   panelOpenState = false;
   

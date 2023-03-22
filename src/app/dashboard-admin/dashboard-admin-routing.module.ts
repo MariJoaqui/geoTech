@@ -4,9 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 // Componentes
 import { AtenderSolicitudesComponent } from './atender-solicitudes/atender-solicitudes.component';
 import { DashboardAdminComponent } from './dashboard-admin.component';
+import { DetallesSolicitudComponent } from '../shared/detalles-solicitud/detalles-solicitud.component';
+import { EditarSolicitudComponent } from './editar-solicitud/editar-solicitud.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { GestionUsuariosComponent } from './gestion-usuarios/gestion-usuarios.component';
+import { PerfilComponent } from '../shared/perfil/perfil.component';
 import { SolicitudesPendientesComponent } from './solicitudes-pendientes/solicitudes-pendientes.component';
 import { SolicitudesProcesadasComponent } from './solicitudes-procesadas/solicitudes-procesadas.component';
+import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
 
 
 const routes: Routes = [
@@ -29,6 +34,26 @@ const routes: Routes = [
       {
         path: 'atender-solicitud/:id',
         component: AtenderSolicitudesComponent
+      },
+      {
+        path: 'detalles/:id',
+        component: DetallesSolicitudComponent
+      },
+      {
+        path: 'editar-solicitud/:id',
+        component: EditarSolicitudComponent
+      },
+      {
+        path: 'detalles-usuario/:id',
+        component: VerUsuarioComponent
+      },
+      {
+        path: 'editar-usuario/:id',
+        component: EditarUsuarioComponent
+      },
+      {
+        path: 'perfil/:id',
+        component: PerfilComponent
       },
       {
         path: '**',

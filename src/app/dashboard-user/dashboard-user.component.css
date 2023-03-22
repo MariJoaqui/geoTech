@@ -14,6 +14,17 @@ mat-sidenav {
 mat-toolbar { 
   color: #FFFFFF !important; 
 }
+::ng-deep .mat-mdc-menu-content {
+  background: #2f76b5;
+  color: #FFFFFF;
+  padding: 0 !important;
+}
+::ng-deep .mat-mdc-menu-content mat-icon {
+  color: #FFFFFF !important;
+}
+::ng-deep .mat-mdc-menu-item:focus {
+  background: #2f76b5;
+}
 
 /* Menú */ 
 mat-expansion-panel { 

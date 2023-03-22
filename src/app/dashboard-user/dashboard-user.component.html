@@ -58,11 +58,22 @@
     <h5>GeoTech</h5>
     
     <button 
-      class="left-auto"
+      class="left-auto openCloseButton"
       mat-button
+      [matMenuTriggerFor]="menu"
       (click)="logout()">
       <mat-icon>more_vert</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/dashboard-user/perfil/{{ solicitud }}">
+        <mat-icon>manage_accounts</mat-icon>
+        Mi perfil
+      </button>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        Salir
+      </button>
+    </mat-menu>
   </mat-toolbar>
     
   <!-- Cuerpo de la aplicación -->

@@ -1,0 +1,97 @@
+/* Global */
+h3, h5 { 
+  color: #1B4970; 
+}
+.w-50 {
+  text-align: center;
+  width: 50%;
+}
+
+/* Formulario */
+.formulario {
+  border: #1B4970 0.15rem solid;
+  height: auto !important;
+  margin-top: 2rem;
+  padding: 1.5rem 5rem 3rem 5rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Inputs */
+.input-field {
+  background: #FFFFFF;
+  border: 0.1rem #1B4970 solid;
+  border-radius: 5rem;
+  height: 2.5rem;
+  margin: 1rem auto 2.5rem auto;
+  width: 25rem;
+}
+.input-field input {
+  color: #1B4970;
+  height: 2.2rem;
+  text-align: center;
+  width: 23rem;
+}
+.input-field input:not(.browser-default){
+  border-bottom: none;
+}
+.input-field>label:not(.label-icon).active {
+  display: none;
+}
+.input-field input:focus {
+  border-bottom: none!important;
+  box-shadow: none !important;
+}
+.input-field label {
+  color: #b9b9b9;
+  margin-left: 2rem;
+  line-height: 1rem;
+}
+
+/* Select */
+mat-form-field {
+  margin-top: 2.1rem;
+  width: 25rem;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 1100px) {
+
+  /* Global */
+  .w-50 {
+    margin: 0 1rem;
+  } 
+
+  /* Inputs */
+  .input-field,
+  .input-field input,
+  mat-form-field {
+    width: 100%;
+  }
+
+}
+@media (max-width: 700px) {
+
+  /* Global */
+  h3 { 
+    font-size: 2rem; 
+  }
+  .display-flex {
+    flex-wrap: wrap;
+  }
+  .w-50 {
+    width: 100%;
+  }
+
+  /* Formulario */
+  .formulario {
+    padding: 0.4rem 1.4rem 1.8rem 1.4rem;
+  }
+
+  /* Select */
+  mat-form-field {
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+}

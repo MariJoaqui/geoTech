@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class SolicitudesProcesadasComponent {
 
+  solicitud: number = 1;
+  
   searchText: string = '';
  
   users: any[] = [

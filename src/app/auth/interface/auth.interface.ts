@@ -10,5 +10,16 @@ export interface UserBdd {
   id      : number,
   nombre  : string,
   apellido: string,
-  rol     : number
+  rol     : string
+}
+
+// Usuarios
+export interface Usuarios {
+  id      : number,
+  rol     : string,
+  nombre  : string,
+  apellido: string,
+  correo  : string,
+  usuario : string,
+  clave   : string
 }

@@ -50,7 +50,7 @@ export class LoginComponent {
       if ( respuesta.success == true ) {
 
         // Definir las rutas según el tipo de usuario
-        if ( respuesta.usuario.rol == 0 ) {
+        if ( respuesta.usuario.rol == 'administrador' ) {
           this.router.navigate(['/dashboard-admin']);
         }
         else {

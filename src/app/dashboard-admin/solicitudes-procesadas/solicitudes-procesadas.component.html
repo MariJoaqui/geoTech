@@ -37,14 +37,14 @@
         <td class="display-none1">{{ item.lider }}</td>
         <td class="display-none1">{{ item.date }}</td>
         <td class="button-width">
-          <a class="waves-effect btn-small info">
+          <a class="waves-effect btn-small info" routerLink="/dashboard-admin/detalles/{{ solicitud }}">
             <i class="material-icons">
               feed
             </i>
           </a>
         </td>
         <td class="button-width">
-          <a class="waves-effect btn-small blue">
+          <a class="waves-effect btn-small blue" routerLink="/dashboard-admin/editar-solicitud/{{ solicitud }}">
             <i class="material-icons">
               edit
             </i>

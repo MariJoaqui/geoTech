@@ -31,20 +31,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of filteredUsers; let i = index">
+      <tr *ngFor="let user of filteredUsers; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td class="display-none1">{{ item.username }}</td>
-        <td class="display-none1">{{ item.role }}</td>
+        <td>{{ user.nombre + ' ' + user.apellido }}</td>
+        <td class="display-none1">{{ user.usuario }}</td>
+        <td class="display-none1">{{ user.rol | titlecase }}</td>
         <td class="button-width">
-          <a class="waves-effect btn-small info">
+          <a class="waves-effect btn-small info" [routerLink]="['/dashboard-admin/detalles-usuario', user.id ]">
             <i class="material-icons">
               feed
             </i>
           </a>
         </td>
         <td class="button-width">
-          <a class="waves-effect btn-small blue">
+          <a class="waves-effect btn-small blue" [routerLink]="['/dashboard-admin/editar-usuario', user.id ]">
             <i class="material-icons">
               edit
             </i>

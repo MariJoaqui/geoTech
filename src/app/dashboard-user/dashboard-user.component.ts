@@ -12,4 +12,5 @@ export class DashboardUserComponent {
   
   logout(){}
   
+  solicitud: number = 2;
 }

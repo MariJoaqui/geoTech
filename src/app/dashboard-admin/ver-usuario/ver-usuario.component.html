@@ -1,0 +1,22 @@
+<div class="atender-solicitud">
+  <div class="body">
+    <!-- Información del usuario --> 
+    <h5 class="text-left">Información</h5>
+    <div class="informacion">
+      <h6>Nombre y apellido</h6>
+      <p>{{ usuario.nombre  + ' ' + usuario.apellido | titlecase }}</p>
+      <div class="divider-line"></div>
+
+      <h6>Rol</h6>
+      <p>{{ usuario.rol | titlecase }}</p>
+      <div class="divider-line"></div>
+        
+      <h6>Correo electrónico</h6>
+      <p>{{ usuario.correo }}</p>
+      <div class="divider-line"></div>
+
+      <h6>Nombre de usuario</h6>
+      <p>{{ usuario.usuario | lowercase }}</p>
+    </div>
+  </div>
+</div>

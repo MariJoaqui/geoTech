@@ -1,0 +1,147 @@
+/* Global */
+h3, h5 { 
+  color: #1B4970; 
+  text-align: center;
+}
+
+/* Formulario */
+.formulario {
+  border: #1B4970 0.15rem solid;
+  height: auto !important;
+  margin-top: 2rem;
+  padding: 1.5rem 5rem 3rem 5rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Inputs */
+.input-field {
+  background: #FFFFFF;
+  border: 0.1rem #1B4970 solid;
+  border-radius: 5rem;
+  height: 2.5rem;
+  margin: 1rem auto 2.5rem auto;
+  width: 25rem;
+}
+.input-field input {
+  color: #1B4970;
+  height: 2.2rem;
+  text-align: center;
+  width: 23rem;
+}
+.input-field input:not(.browser-default){
+  border-bottom: none;
+}
+.input-field>label:not(.label-icon).active {
+  display: none;
+}
+.input-field input:focus {
+  border-bottom: none!important;
+  box-shadow: none !important;
+}
+.input-field label {
+  color: #b9b9b9;
+  margin-left: 2rem;
+  line-height: 1rem;
+}
+
+/* Para el radio button */
+.radios {
+  justify-content: center;
+  margin: 0.8rem 0 2.5rem 0;
+}
+.radios p {
+  margin: 0 1rem;
+}
+[type="radio"]:checked+span:after, 
+[type="radio"].with-gap:checked+span:before, 
+[type="radio"].with-gap:checked+span:after {
+  border: 2px solid #1B4970 !important;
+  background-color: #1B4970 !important;
+}
+
+/* Select */
+mat-form-field {
+  width: 25rem;
+}
+
+/* Personal */
+.personal .input-field {
+  margin-top: 0.5rem;
+}
+.personal .lider {
+  margin-right: 1rem;
+}
+.personal .ayudante {
+  margin-left: 1rem;
+}
+
+/* Descripción */
+.text-left {
+  margin-top: 0;
+  text-align: left;
+}
+.textarea {
+  margin-bottom: 0;
+}
+.textarea .input-field {
+  border: 0.1rem #1B4970 solid;
+  border-radius: 0.3rem;
+  height: auto;
+}
+.textarea .input-field textarea {
+  color: #1B4970;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.textarea .input-field textarea:focus {
+  border-bottom: none!important;
+  box-shadow: none !important;
+}
+.input-field textarea:not(.browser-default):focus:not([readonly])+label {
+  color: rgba(255, 255, 255, 0);
+}
+.text-right {
+  display: flex;
+  margin-left: auto !important;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 960px) {
+
+  /* Personal */
+  .personal {
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .personal .lider,
+  .personal .ayudante {
+    margin: 0.5rem auto 1rem auto;
+  }
+
+}
+
+@media (max-width: 570px) {
+
+  /* Global */
+  h3 { font-size: 2rem; }
+
+  .input-field,
+  mat-form-field {
+    width: 100%;
+  }
+
+  /* Formulario */
+  .formulario {
+    padding: 0.4rem 1.4rem 1.4rem 1.4rem;
+  }
+
+  /*  Nivel */
+  .radios p {
+    margin: 0.4rem 0.2rem;
+  }
+  .radios span {
+    padding-left: 1.6rem;
+  }
+
+}
