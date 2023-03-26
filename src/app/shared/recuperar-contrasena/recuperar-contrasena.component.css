@@ -1,0 +1,42 @@
+/* Global */
+h4 {
+  color: #1B4970;
+  margin-bottom: 2rem;
+}
+
+/* Body */
+.recuperar-contrasena {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+/* Inputs */
+.input-field {
+  background: #FFFFFF;
+  border: 0.1rem #1B4970 solid;
+  border-radius: 5rem;
+  height: 2.5rem;
+  margin: 1rem auto 2.5rem auto;
+  width: 25rem;
+}
+.input-field input {
+  color: #1B4970;
+  height: 2.2rem;
+  text-align: center;
+  width: 23rem;
+}
+.input-field input:not(.browser-default){
+  border-bottom: none;
+}
+.input-field>label:not(.label-icon).active {
+  display: none;
+}
+.input-field input:focus {
+  border-bottom: none!important;
+  box-shadow: none !important;
+}
+.input-field label {
+  color: #b9b9b9;
+  margin-left: 2rem;
+  line-height: 1rem;
+}

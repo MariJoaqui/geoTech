@@ -52,7 +52,7 @@ const routes: Routes = [
         component: EditarUsuarioComponent
       },
       {
-        path: 'perfil/:id',
+        path: 'perfil',
         component: PerfilComponent
       },
       {

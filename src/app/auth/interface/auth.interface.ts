@@ -23,3 +23,22 @@ export interface Usuarios {
   usuario : string,
   clave   : string
 }
+
+// Nodos
+export interface Nodos {
+  id    : number,
+  nombre: string
+}
+
+// Solicitudes
+export interface Solicitudes {
+  id?        : number,
+  evento     : string,
+  nivel      : string,
+  segmentoRed: string,
+  nodo       : number,
+  unidad     : string,
+  lider      : string,
+  ayudante   : string,
+  detalles   : string
+}

@@ -1,0 +1,32 @@
+<div class="recuperar-contrasena">
+  <h4>Ingrese la nueva contraseña</h4>
+
+  <form>
+    <div class="input-field">
+      <input 
+        type="text" 
+        formControlName="password1"
+      >
+      <label class="">Nueva contraseña</label>
+      <span *ngIf="campoNoValido('password1')">
+        La contraseña debe de ser mayor de 6 caracteres.
+      </span>
+    </div>
+
+    <div class="input-field">
+      <input 
+        type="text" 
+        formControlName="password2"
+      >
+      <label class="">Confirmar contraseña</label>
+      <span *ngIf="campoNoValido('password2')">
+        Las contraseñas deben de ser iguales.
+      </span>
+    </div>
+
+    <button class="btn waves-effect waves-light blue text-right" type="submit">
+      Guardar
+      <i class="material-icons right">save</i>
+    </button>
+  </form>
+</div>

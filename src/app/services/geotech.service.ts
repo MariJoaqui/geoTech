@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Interfaces
-import { Usuarios } from '../auth/interface/auth.interface';
+import { Nodos, Solicitudes, Usuarios } from '../auth/interface/auth.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,45 @@ export class GeotechService {
 
   // Obtener usuario por id:
   getUsuarioPorId( id: number ): Observable<Usuarios[]> {
-    return this.http.get<Usuarios[]>(`${ this.url }/getUsuariosPorId.php/?id=${ id }`);
+    return this.http.get<Usuarios[]>(`${ this.url }/getUsuariosPorId.php?id=${ id }`);
+  }
+
+  // Obtener los nodos
+  getNodos(): Observable<Nodos[]> {
+    return this.http.get<Nodos[]>(`${ this.url }/getNodos.php`);
+  }
+
+  // Insertar las solicitudes en la base de datos:
+  solicitar( 
+    evento     : string, 
+    nivel      : string,
+    segmentoRed: string,
+    nodo       : number,
+    unidad     : string, 
+    lider      : string,
+    ayudante   : string,
+    detalles   : string
+  ): Observable<Solicitudes> {
+
+    // Objeto con los datos del formulario
+    const datos = {
+      evento     : evento,
+      nivel      : nivel,
+      segmentoRed: segmentoRed,
+      nodo       : nodo,
+      unidad     : unidad,
+      lider      : lider,
+      ayudante   : ayudante,
+      detalles   : detalles
+    };
+    
+    // Petición POST al archivo PHP
+    return this.http.post<Solicitudes>( `${ this.url }/crearSolicitud.php`, JSON.stringify(datos), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+
   }
 
 }

@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 // Módulos
 import { MaterialModule } from '../material/material.module';
 import { PerfilComponent } from './perfil/perfil.component';
+import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
 
 @NgModule({
   declarations: [
-  
-  
-    PerfilComponent
+    PerfilComponent,
+    RecuperarContrasenaComponent
   ],
   imports: [
     CommonModule,

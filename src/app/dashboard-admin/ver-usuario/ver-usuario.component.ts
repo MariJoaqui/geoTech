@@ -16,7 +16,8 @@ export class VerUsuarioComponent {
 
   constructor( 
     private activateRoute: ActivatedRoute,
-    private geotechService: GeotechService ) { }
+    private geotechService: GeotechService 
+  ) { }
 
   ngOnInit(): void {
     this.activateRoute.params.pipe(

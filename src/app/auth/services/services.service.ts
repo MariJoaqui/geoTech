@@ -11,9 +11,12 @@ import { User } from '../interface/auth.interface';
 export class ServicesService {
 
   // Url del servidor
-  private url = 'http://localhost/geotech-server/conexion/proceso-login.php';
-  // private url = 'geotech-server/conexion/proceso-login.php';
-  
+  private urlLogin = 'http://localhost/geotech-server/conexion/proceso-login.php';
+  // private urlLogin = 'geotech-server/conexion/proceso-login.php';
+  private urlCorreo = 'http://localhost/geotech-server/procesos/validarCorreo.php';
+
+
+
   // Servicios externos
   constructor( private http: HttpClient ) { }
 
@@ -27,11 +30,26 @@ export class ServicesService {
     };
     
     // Petición POST al archivo PHP
-    return this.http.post<User>( this.url, JSON.stringify(datos), {
+    return this.http.post<User>( this.urlLogin, JSON.stringify(datos), {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     });
 
   }
+
+  // Llamado a la Base de datos para ver si existe el correo
+  validarCorreo( correo: string ): Observable<any> {
+
+    const datos = {
+      correo: correo
+    }
+
+    return this.http.post<any>( this.urlCorreo, JSON.stringify(datos), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
 }

@@ -4,8 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 // Servicios importados
-import { ValidatorService } from 'src/app/shared/validator/validator.service';
 import { ServicesService } from '../../services/services.service';
+import { ValidatorService } from 'src/app/shared/validator/validator.service';
 
 
 @Component({
@@ -49,6 +49,9 @@ export class LoginComponent {
       // Validar el ingreso
       if ( respuesta.success == true ) {
 
+        // Guardar el id del usuario en el local storage
+        localStorage.setItem('id', respuesta.usuario.id.toString());
+
         // Definir las rutas según el tipo de usuario
         if ( respuesta.usuario.rol == 'administrador' ) {
           this.router.navigate(['/dashboard-admin']);
@@ -66,6 +69,7 @@ export class LoginComponent {
         });
 
       }
+      
     },
     error => {
       console.log(error);

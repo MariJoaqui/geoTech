@@ -60,16 +60,15 @@
     <button 
       class="left-auto openCloseButton"
       mat-button
-      [matMenuTriggerFor]="menu"
-      (click)="logout()">
+      [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/dashboard-user/perfil/{{ solicitud }}">
+      <button mat-menu-item routerLink="/dashboard-user/perfil/">
         <mat-icon>manage_accounts</mat-icon>
         Mi perfil
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="logout()">
         <mat-icon>logout</mat-icon>
         Salir
       </button>

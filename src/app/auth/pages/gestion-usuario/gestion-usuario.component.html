@@ -11,12 +11,25 @@
             info
           </mat-icon>
         </div>
-        <form>
+        <form autocomplete="off" [formGroup]="formulario">
           <div class="input-field">
-            <input type="email" class="white-text">
+            <input 
+              type="email" 
+              class="white-text"
+              formControlName="correo"
+            >
             <label class="white-text">Correo electrónico</label>
+
+            <!-- Mensaje de error -->
+            <span *ngIf="campoNoValido('correo')">Formato incorrecto</span>
           </div>
-          <button mat-raised-button>Buscar</button>
+          <button 
+            mat-raised-button 
+            (click)="buscarCorreo()"
+            [disabled]="formulario.invalid"
+          >
+            Buscar
+          </button>
         </form>
       </div>
     </div>

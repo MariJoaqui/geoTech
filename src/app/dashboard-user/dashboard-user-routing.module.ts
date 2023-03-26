@@ -32,7 +32,7 @@ const routes: Routes = [
         component: EditarSolicitudComponent
       },
       {
-        path: 'perfil/:id',
+        path: 'perfil',
         component: PerfilComponent
       },
       {

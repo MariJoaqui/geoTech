@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 // Módulos
@@ -23,6 +24,7 @@ import { EditarSolicitudComponent } from './editar-solicitud/editar-solicitud.co
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FormsModule,
     DashboardUserRoutingModule,
     MaterialModule,

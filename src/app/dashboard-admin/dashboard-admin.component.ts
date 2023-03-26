@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -7,10 +8,17 @@ import { Component } from '@angular/core';
 })
 export class DashboardAdminComponent {
 
-  solicitud: number = 1;
   // MatExpansion
   panelOpenState = false;
-  
-  logout(){}
+
+  constructor( private router: Router ) { }
+
+  logout() {
+    // Borrar el id del usuario del localStorage
+    localStorage.removeItem('id');
+
+    // Redirigir al usuario a la página de inicio de sesión
+    this.router.navigate(['']);
+  }
   
 }

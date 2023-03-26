@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-user',
@@ -9,8 +10,15 @@ export class DashboardUserComponent {
 
   // MatExpansion
   panelOpenState = false;
+
+  constructor( private router: Router ) { }
   
-  logout(){}
+  logout() {
+    // Borrar el id del usuario del localStorage
+    localStorage.removeItem('id');
+
+    // Redirigir al usuario a la página de inicio de sesión
+    this.router.navigate(['']);
+  }
   
-  solicitud: number = 2;
 }

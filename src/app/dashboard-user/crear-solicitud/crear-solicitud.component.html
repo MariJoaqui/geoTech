@@ -4,16 +4,17 @@
   <h3>Nueva solicitud</h3>
 
   <div class="formulario">
-    <form>
+    <form [formGroup]="formulario" (ngSubmit)="solicitar()">
       
       <!-- Nombre del evento -->
       <h5>Evento</h5>
       <div class="input-field">
         <input 
           type="text" 
-          class=""
+          formControlName="evento"
         >
         <label class="">Nombre del evento</label>
+        <span class="mensaje" *ngIf="campoEsValido('evento')">Complete este campo</span>
       </div>
 
       <!-- nivel de prioridad -->
@@ -21,20 +22,35 @@
       <div class="radios display-flex">
         <p>
           <label>
-            <input class="with-gap" name="group1" type="radio"  />
+            <input 
+              class="with-gap" 
+              type="radio"  
+              value="backbone"
+              formControlName="nivel"
+            >
             <span>Backbone</span>
           </label>
         </p>
         <p>
           <label>
-            <input class="with-gap" name="group1" type="radio"  />
+            <input 
+              class="with-gap" 
+              type="radio"  
+              value="primario"
+              formControlName="nivel"
+            >
             <span>Primario</span>
           </label>
         </p>
         <p>
           <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>Secundario</span>
+            <input 
+              class="with-gap" 
+              type="radio"  
+              value="segundario"
+              formControlName="nivel"
+            >
+            <span>Segundario</span>
           </label>
         </p>
       </div>
@@ -44,18 +60,19 @@
       <div class="input-field">
         <input 
           type="text" 
-          class=""
+          formControlName="segmentoRed"
         >
         <label class="">Segmento de red</label>
+        <span class="mensaje" *ngIf="campoEsValido('segmentoRed')">Complete este campo</span>
       </div>
 
       <!-- Nodo -->
       <h5>Nodo</h5>
       <mat-form-field appearance="fill">
         <mat-label>Seleccionar nodo</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let nodo of nodo" [value]="nodo.value">
-            {{ nodo.nodo | uppercase }}
+        <mat-select formControlName="nodo">
+          <mat-option *ngFor="let nodo of nodos" [value]="nodo.id">
+            {{ nodo.nombre | uppercase }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -65,9 +82,10 @@
       <div class="input-field">
         <input 
           type="text" 
-          class=""
+          formControlName="unidad"
         >
         <label class="">Unidad</label>
+        <span class="mensaje" *ngIf="campoEsValido('unidad')">Complete este campo</span>
       </div>
 
       <!-- Personal -->
@@ -76,16 +94,18 @@
         <div class="input-field lider">
           <input 
             type="text" 
-            class=""
+            formControlName="lider"
           >
           <label class="">Lider</label>
+          <span class="mensaje" *ngIf="campoEsValido('lider')">Complete este campo</span>
         </div>
         <div class="input-field ayudante">
           <input 
             type="text" 
-            class=""
+            formControlName="ayudante"
           >
           <label class="">Ayudante</label>
+          <span class="mensaje" *ngIf="campoEsValido('ayudante')">Complete este campo</span>
         </div>
       </div>
       
@@ -93,12 +113,18 @@
       <h5 class="text-left">Detalle de solicitud</h5>
       <div class="row textarea">
         <div class="input-field col s12">
-          <textarea class="materialize-textarea"></textarea>
+          <textarea formControlName="detalles" class="materialize-textarea"></textarea>
           <label for="textarea1">Detalles y archivos requeridos</label>
         </div>
       </div>
+      <span class="mensaje" *ngIf="campoEsValido('detalles')">Complete este campo</span>
       
-      <button class="btn waves-effect waves-light blue text-right" type="submit">Enviar
+      <button 
+        class="btn waves-effect waves-light blue text-right" 
+        type="submit"
+        [disabled]="formulario.invalid"
+      >
+        Enviar
         <i class="material-icons right">send</i>
       </button>
     </form>
