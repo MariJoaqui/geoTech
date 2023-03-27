@@ -12,15 +12,13 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardUserComponent } from './dashboard-user.component';
 import { CrearSolicitudComponent } from './crear-solicitud/crear-solicitud.component';
 import { VerSolicitudComponent } from './ver-solicitud/ver-solicitud.component';
-import { EditarSolicitudComponent } from './editar-solicitud/editar-solicitud.component';
 
 
 @NgModule({
   declarations: [
     DashboardUserComponent,
     CrearSolicitudComponent,
-    VerSolicitudComponent,
-    EditarSolicitudComponent
+    VerSolicitudComponent
   ],
   imports: [
     CommonModule,

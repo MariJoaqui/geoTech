@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+
+// Interface
+import { Solicitudes } from 'src/app/auth/interface/auth.interface';
+import { GeotechService } from 'src/app/services/geotech.service';
 
 @Component({
   selector: 'app-ver-solicitud',
@@ -7,27 +13,66 @@ import { Component } from '@angular/core';
 })
 export class VerSolicitudComponent {
 
-  solicitud: number = 2;
   searchText: string = '';
  
-  users: any[] = [
-    { event: 'Secundaria sin potencia', red: '2FP-6-4', estado: 'Pendiente', date: '12-03-2022' },
-    { event: 'Noloserick', red: '6FP-6-5', estado: 'Pendiente', date: '12-03-2022' },
-    { event: 'Se fue la lu', red: '9FP-7-4', estado: 'procesada', date: '13-03-2022' },
-    { event: 'Se fue la lu', red: '9FP-7-4', estado: 'procesada', date: '13-03-2022' },
-    { event: 'Se fue la lu', red: '9FP-7-4', estado: 'procesada', date: '13-03-2022' },
-    { event: 'Se fue la lu', red: '9FP-7-4', estado: 'procesada', date: '13-03-2022' },
-    { event: 'Se fue la lu', red: '9FP-7-4', estado: 'procesada', date: '13-03-2022' },
- 
-  ];
+  // Arreglo para obtener las solicitudes  de la base dde datos
+  solicitudes: Solicitudes[] = [];
 
-  get filteredUsers() {
-    return this.users.filter(user => {
-      return user.event.toLowerCase().includes(this.searchText.toLowerCase()) ||
-             user.red.toLowerCase().includes(this.searchText.toLowerCase()) ||
-             user.estado.toLowerCase().includes(this.searchText.toLowerCase()) ||
-             user.date.toLowerCase().includes(this.searchText.toLowerCase());
-    });
+  // Servicios
+  constructor( 
+    private geotechService: GeotechService, 
+    private snackBar : MatSnackBar,
+  ) { }
+
+  // Lammada al servicio para mostrar los usuarios
+  ngOnInit(): void {
+
+    // Id del tecnico que realiza la solicitud
+    const id_tecnico = parseInt(localStorage.getItem('id')??'');
+
+    this.geotechService.getSolicitudPorId( id_tecnico )
+      .subscribe( response => {
+        this.solicitudes = response;
+      }
+    );
+
+  }
+
+  // Filtrar
+  get filteredSolicitud() {
+    return this.solicitudes.filter( solicitud => {
+      return solicitud.evento.toLowerCase().includes(this.searchText.toLowerCase()) ||
+             solicitud.red.toLowerCase().includes(this.searchText.toLowerCase())
+      }
+    );
+  }
+
+  // Anular la solicitud
+  anular( id:any ) {
+    this.geotechService.anularSolicitud( id ).subscribe( response => {
+      
+      if ( response )  {
+
+        // Buscar la solicitud que ha sido anulada en la lista filteredSolicitud
+        const solicitudAnulada = this.filteredSolicitud.find(solicitud => solicitud.id === id);
+        if (solicitudAnulada) {
+          // Actualizar el estado de la solicitud a "anulada"
+          solicitudAnulada.estado = "anulada";
+        }
+        // Mensaje
+        this.snackBar.open('Se ha anulado la solicitud', 'Cerrar', { duration: 5000 });
+
+      }
+      else {
+
+        // Mensaje de error
+        this.snackBar.open('No se pudo anular la solicitud', 'Cerrar', {
+          duration: 5000 
+        });
+
+      }
+      
+    })
   }
 
 }

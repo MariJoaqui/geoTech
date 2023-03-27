@@ -32,13 +32,17 @@ export interface Nodos {
 
 // Solicitudes
 export interface Solicitudes {
-  id?        : number,
-  evento     : string,
-  nivel      : string,
-  segmentoRed: string,
-  nodo       : number,
-  unidad     : string,
-  lider      : string,
-  ayudante   : string,
-  detalles   : string
+  id?         : number,
+  id_tecnico? : number,
+  evento      : string,
+  nivel       : string,
+  red         : string,
+  nodo        : number,
+  unidad      : string,
+  lider       : string,
+  ayudante    : string,
+  detalles    : string,
+  estado?     : string,
+  fecha?      : string,
+  hora?       : string
 }

@@ -27,6 +27,21 @@ export class GeotechService {
     return this.http.get<Usuarios[]>(`${ this.url }/getUsuariosPorId.php?id=${ id }`);
   }
 
+  // Obtener solicitudes por id_tecnico:
+  getSolicitudPorId( id: number ): Observable<Solicitudes[]> {
+    return this.http.get<Solicitudes[]>(`${ this.url }/getSolicitudPorId.php?id_tecnico=${ id }`);
+  }
+
+  // Obtener solicitudes por id:
+  getSolicitudesPorId( id: number ): Observable<Solicitudes[]> {
+    return this.http.get<Solicitudes[]>(`${ this.url }/getSolicitudesPorId.php?id=${ id }`);
+  }
+
+  // Obtener solicitudes por id:
+  anularSolicitud( id: number ): Observable<Solicitudes> {
+    return this.http.get<Solicitudes>(`${ this.url }/anularSolicitud.php?id=${ id }`);
+  }
+
   // Obtener los nodos
   getNodos(): Observable<Nodos[]> {
     return this.http.get<Nodos[]>(`${ this.url }/getNodos.php`);
@@ -34,6 +49,7 @@ export class GeotechService {
 
   // Insertar las solicitudes en la base de datos:
   solicitar( 
+    id_tecnico : number,
     evento     : string, 
     nivel      : string,
     segmentoRed: string,
@@ -46,14 +62,15 @@ export class GeotechService {
 
     // Objeto con los datos del formulario
     const datos = {
-      evento     : evento,
-      nivel      : nivel,
-      segmentoRed: segmentoRed,
-      nodo       : nodo,
-      unidad     : unidad,
-      lider      : lider,
-      ayudante   : ayudante,
-      detalles   : detalles
+      id_tecnico  : id_tecnico,
+      evento      : evento,
+      nivel       : nivel,
+      segmentoRed : segmentoRed,
+      nodo        : nodo,
+      unidad      : unidad,
+      lider       : lider,
+      ayudante    : ayudante,
+      detalles    : detalles
     };
     
     // Petición POST al archivo PHP

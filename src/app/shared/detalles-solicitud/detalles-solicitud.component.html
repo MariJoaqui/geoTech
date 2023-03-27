@@ -8,49 +8,45 @@
       <h5 class="text-left">Solicitud</h5>
       <div class="informacion">
         <h6>Evento</h6>
-        <p>Evento</p>
+        <p>{{ solicitud.evento }}</p>
         <div class="divider-line"></div>
 
         <h6>Nivel</h6>
-        <p>Secundario</p>
+        <p>{{ solicitud.nivel }}</p>
         <div class="divider-line"></div>
         
         <h6>Segmento de red</h6>
-        <p>red talcosa</p>
+        <p>{{ solicitud.red }}</p>
         <div class="divider-line"></div>
 
         <h6>Nodo</h6>
-        <p>Florida</p>
+        <p>{{ solicitud.nombreNodo }}</p>
         <div class="divider-line"></div>
 
         <h6>Unidad</h6>
-        <p>Nombre de la unidad</p>
+        <p>{{ solicitud.unidad }}</p>
         <div class="divider-line"></div>
         
         <h6>Personal</h6>
         <div class="display-flex info-personal">
           <div class="personal">
             <h6>Líder</h6>
-            <p>Nombre del Líder</p>
+            <p>{{ solicitud.lider }}</p>
           </div>
           <div class="personal">
             <h6>Ayudante</h6>
-            <p>Nombre del ayudante</p>
+            <p>{{ solicitud.ayudante }}</p>
           </div>
         </div>
         <div class="divider-line"></div>
 
-        <h6>Fecha</h6>
-        <p>16-03-2023</p>
-        <div class="divider-line"></div>
-
         <h6>Descripción de la solicitud</h6>
-        <p>Aqui se describe lo que se necesita en cuanto a documentos o alguna otra cosa</p>
+        <p>{{ solicitud.detalles }}</p>
       </div>
       
       <!-- Archivos -->
-      <h5 class="text-left">Archivos adjuntos</h5>
-      <div class="file-field input-field">
+      <h5 *ngIf="solicitud.estado == 'pendiente'" class="text-left">Archivos adjuntos</h5>
+      <div *ngIf="solicitud.estado == 'pendiente'" class="file-field input-field">
         <a routerLink="">ArchivoKMZ.kmz</a>
         <a routerLink="">ArchivoPDF.pdf</a>
         <a routerLink="">ArchivoPDF.pdf</a>
@@ -58,8 +54,8 @@
       </div>
 
       <!-- Observaciones -->
-      <h5 class="text-left">Observaciones</h5>
-      <div class="row observaciones">
+      <h5 *ngIf="solicitud.estado == 'pendiente'" class="text-left">Observaciones</h5>
+      <div *ngIf="solicitud.estado == 'pendiente'" class="row observaciones">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum rerum excepturi veniam possimus! Rerum repudiandae eveniet consequatur repellat libero, temporibus harum ipsam minus, deserunt adipisci maxime. Sit tempore ea rerum.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, placeat? Ullam sunt laudantium, numquam a quia laborum deleniti? Provident culpa, ipsam consectetur optio a doloremque earum distinctio dicta maxime veniam.
       </div>

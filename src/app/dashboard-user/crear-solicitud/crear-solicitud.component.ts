@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 // interface
 import { Nodos } from 'src/app/auth/interface/auth.interface';
 
 // Servicios
 import { GeotechService } from 'src/app/services/geotech.service';
-import { ValidatorService } from 'src/app/shared/validator/validator.service';
 
 
 @Component({
@@ -24,13 +24,13 @@ export class CrearSolicitudComponent {
   constructor( 
     private fb               : FormBuilder,
     private geotechService   : GeotechService,
-    private snackBar         : MatSnackBar, 
-    private ValidatorService : ValidatorService
+    private router           : Router,
+    private snackBar         : MatSnackBar
   ) { }
 
   // Formulario y validaciones
   formulario: FormGroup = this.fb.group({  
-    evento     : [ '', [ Validators.required, Validators.minLength(6) ] ],
+    evento     : [ '', [ Validators.required ] ],
     nivel      : [ '', [ Validators.required ] ],
     segmentoRed: [ '', [ Validators.required ] ],
     nodo       : [ '', [ Validators.required ] ],
@@ -52,6 +52,9 @@ export class CrearSolicitudComponent {
   // Enviar solicitud
   solicitar() {
 
+    // Id del tecnico que realiza la solicitud
+    const id_tecnico = parseInt(localStorage.getItem('id')??'');
+
     // Valores recibidos del formulario
     const evento      = this.formulario.get('evento')?.value;
     const nivel       = this.formulario.get('nivel')?.value;
@@ -63,15 +66,15 @@ export class CrearSolicitudComponent {
     const detalles    = this.formulario.get('detalles')?.value;
 
     // Se envia al servicio
-    this.geotechService.solicitar( evento, nivel, segmentoRed, nodo, unidad, lider, ayudante, detalles )
+    this.geotechService.solicitar( id_tecnico, evento, nivel, segmentoRed, nodo, unidad, lider, ayudante, detalles )
       .subscribe( respuesta => {
-
-        console.log(respuesta);
         
         // Mensaje
         this.snackBar.open('Solicitud enviada', 'Cerrar', {
           duration: 5000 
         });
+
+        this.router.navigate(['/dashboard-user/solicitudes']);
 
       },
       error => {

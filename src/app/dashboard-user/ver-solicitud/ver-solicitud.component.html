@@ -25,35 +25,51 @@
         <th class="display-none1">Segmento de red</th>
         <th class="display-none1">Estado</th>
         <th class="display-none1">Fecha</th>
-        <th class="button-width"></th>
+        <th class="button-width">Hora</th>
         <th class="button-width"></th>
         <th class="button-width"></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of filteredUsers; let i = index">
-        <td>{{ item.event }}</td>
-        <td class="display-none1">{{ item.red }}</td>
-        <td class="display-none1">{{ item.estado }}</td>
-        <td class="display-none1">{{ item.date }}</td>
-        <td class="button-width">
-          <a class="waves-effect btn-small info" routerLink="/dashboard-user/detalles/{{ solicitud }}">
+      <tr *ngFor="let item of filteredSolicitud.reverse(); let i = index">
+        <td *ngIf="item.estado == 'pendiente'  || item.estado == 'procesada'">
+          {{ item.evento }}
+        </td>
+        <td 
+          *ngIf="item.estado == 'pendiente' || item.estado == 'procesada'"
+          class="display-none1">
+          {{ item.red | uppercase }}
+        </td>
+        <td 
+          *ngIf="item.estado == 'pendiente' || item.estado == 'procesada'"
+          class="display-none1">
+          {{ item.estado | titlecase }}
+        </td>
+        <td 
+          *ngIf="item.estado == 'pendiente' || item.estado == 'procesada'"
+          class="display-none1">
+          {{ item.fecha | date:'dd/MM/yyyy' }}
+        </td>
+        <td 
+          *ngIf="item.estado == 'pendiente' || item.estado == 'procesada'"
+          class="display-none1">
+          {{ item.hora }}
+        </td>
+        <td
+          *ngIf="item.estado == 'pendiente' || item.estado == 'procesada'"
+          class="button-width">
+          <a class="waves-effect btn-small info" [routerLink]="['/dashboard-user/detalles', item.id]">
             <i class="material-icons">
               feed
             </i>
           </a>
         </td>
-        <td class="button-width">
-          <a class="waves-effect btn-small blue" routerLink="/dashboard-user/editar/{{ solicitud }}">
+        <td 
+          *ngIf="item.estado == 'pendiente' || item.estado == 'procesada'"
+          class="button-width">
+          <a class="waves-effect btn-small red" (click)="anular( item.id )">
             <i class="material-icons">
-              edit
-            </i>
-          </a>
-        </td>
-        <td class="button-width">
-          <a class="waves-effect btn-small red">
-            <i class="material-icons">
-              delete
+              cancel
             </i>
           </a>
         </td>
