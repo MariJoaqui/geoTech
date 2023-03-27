@@ -9,6 +9,7 @@ import { EditarSolicitudComponent } from './editar-solicitud/editar-solicitud.co
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { GestionUsuariosComponent } from './gestion-usuarios/gestion-usuarios.component';
 import { PerfilComponent } from '../shared/perfil/perfil.component';
+import { SolicitudesAnuladasComponent } from './solicitudes-anuladas/solicitudes-anuladas.component';
 import { SolicitudesPendientesComponent } from './solicitudes-pendientes/solicitudes-pendientes.component';
 import { SolicitudesProcesadasComponent } from './solicitudes-procesadas/solicitudes-procesadas.component';
 import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'solicitudes-procesadas',
         component: SolicitudesProcesadasComponent
+      },
+      {
+        path: 'solicitudes-anuladas',
+        component: SolicitudesAnuladasComponent
       },
       {
         path: 'gestion-usuarios',

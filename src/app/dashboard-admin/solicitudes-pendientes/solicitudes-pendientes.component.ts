@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+// Interface
+import { Solicitudes } from 'src/app/auth/interface/auth.interface';
+import { GeotechService } from 'src/app/services/geotech.service';
+
 @Component({
   selector: 'app-solicitudes-pendientes',
   templateUrl: './solicitudes-pendientes.component.html',
@@ -9,21 +13,31 @@ export class SolicitudesPendientesComponent {
 
   searchText: string = '';
  
-  users: any[] = [
-    { event: 'Secundaria sin potencia', red: '2FP-6-4', lider: 'Fulanito detal' },
-    { event: 'Noloserick', red: '6FP-6-5', lider: 'Otro carajo' },
-    { event: 'Se fue la lu', red: '9FP-7-4', lider: 'Uno mas xd' },
- 
-  ];
+  // Arreglo para obtener las solicitudes de la base dde datos
+  solicitudes: Solicitudes[] = [];
 
-  get filteredUsers() {
-    return this.users.filter(user => {
-      return user.event.toLowerCase().includes(this.searchText.toLowerCase()) ||
-             user.red.toLowerCase().includes(this.searchText.toLowerCase()) ||
-             user.lider.toLowerCase().includes(this.searchText.toLowerCase());
-    });
+  // Servicios
+  constructor( 
+    private geotechService: GeotechService, 
+  ) { }
+
+  // Llamada al servicio para mostrar las solicitudes
+  ngOnInit(): void {
+
+    this.geotechService.getSolicitudesPorEstado( 'pendiente' )
+      .subscribe( response => {
+        this.solicitudes = response;
+      }
+    );
+
   }
 
-  solicitud: any = 1;
+  get filteredSolicitudes() {
+    return this.solicitudes.filter(solicitud => {
+      return solicitud.evento.toLowerCase().includes(this.searchText.toLowerCase()) ||
+             solicitud.red.toLowerCase().includes(this.searchText.toLowerCase()) ||
+             solicitud.fecha?.toLowerCase().includes(this.searchText.toLowerCase());
+    });
+  }
 
 }

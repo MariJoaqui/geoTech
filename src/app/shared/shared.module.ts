@@ -5,11 +5,13 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
+import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
 
 @NgModule({
   declarations: [
     PerfilComponent,
-    RecuperarContrasenaComponent
+    RecuperarContrasenaComponent,
+    AgregarUsuarioComponent
   ],
   imports: [
     CommonModule,

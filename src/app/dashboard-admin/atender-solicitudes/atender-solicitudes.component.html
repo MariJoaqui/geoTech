@@ -4,45 +4,45 @@
   <h3>Detalles de solicitud</h3>
 
   <div class="formulario">
-    <form>
+    <form [formGroup]="formulario" (ngSubmit)="enviar()">
       <!-- Información de la solicitud recibida -->
       <h5 class="text-left">Información</h5>
       <div class="informacion">
         <h6>Evento</h6>
-        <p>Evento</p>
+        <p>{{ solicitud.evento | titlecase }}</p>
         <div class="divider-line"></div>
 
         <h6>Nivel</h6>
-        <p>Secundario</p>
+        <p>{{ solicitud.nivel | titlecase }}</p>
         <div class="divider-line"></div>
         
         <h6>Segmento de red</h6>
-        <p>red talcosa</p>
+        <p>{{ solicitud.red | uppercase }}</p>
         <div class="divider-line"></div>
 
         <h6>Nodo</h6>
-        <p>Florida</p>
+        <p>{{ solicitud.nombreNodo | titlecase }}</p>
         <div class="divider-line"></div>
 
         <h6>Unidad</h6>
-        <p>Nombre de la unidad</p>
+        <p>{{ solicitud.unidad | titlecase }}</p>
         <div class="divider-line"></div>
         
         <h6>Personal</h6>
         <div class="display-flex info-personal">
           <div class="personal">
             <h6>Líder</h6>
-             <p>Nombre del Líder</p>
+             <p>{{ solicitud.lider | titlecase }}</p>
           </div>
           <div class="personal">
             <h6>Ayudante</h6>
-             <p>Nombre del ayudante</p>
+             <p>{{ solicitud.ayudante | titlecase }}</p>
           </div>
         </div>
         <div class="divider-line"></div>
 
         <h6>Descripción de la solicitud</h6>
-        <p>Aqui se describe lo que se necesita en cuanto a documentos o alguna otra cosa</p>
+        <p>{{ solicitud.detalles }}</p>
       </div>
       
       <!-- Archivos -->
@@ -50,10 +50,15 @@
       <div class="file-field input-field">
         <div class="btn blue">
           <span>Subir archivos</span>
-          <input type="file" multiple>
+          <input type="file">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder="Cargar uno o más archivos">
+          <input 
+            class="file-path validate" 
+            type="text" 
+            placeholder="Cargar uno o más archivos"
+            formControlName="archivo"
+          >
         </div>
       </div>
 
@@ -61,12 +66,17 @@
       <h5 class="text-left">Observaciones</h5>
       <div class="row textarea">
         <div class="input-field col s12">
-          <textarea class="materialize-textarea"></textarea>
+          <textarea formControlName="observaciones" class="materialize-textarea"></textarea>
           <label for="textarea1">Aportar observaciones</label>
         </div>
       </div>
       
-      <button class="btn waves-effect waves-light blue text-right" type="submit">Enviar
+      <button 
+        class="btn waves-effect waves-light blue text-right" 
+        type="submit"
+        [disabled]="formulario.invalid"
+      >
+        Enviar
         <i class="material-icons right">send</i>
       </button>
     </form>

@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 // Servicios
 import { GeotechService } from 'src/app/services/geotech.service';
 
 // Interface
 import { Usuarios } from 'src/app/auth/interface/auth.interface';
+
+// Componentes
+import { AgregarUsuarioComponent } from 'src/app/shared/agregar-usuario/agregar-usuario.component';
 
 @Component({
   selector: 'app-gestion-usuarios',
@@ -20,7 +24,10 @@ export class GestionUsuariosComponent implements OnInit {
   users: Usuarios[] = [];
 
   // Servicios
-  constructor(private geotechService: GeotechService) { }
+  constructor(
+    private dialog         : MatDialog,
+    private geotechService : GeotechService
+  ) { }
 
   // Lammada al servicio para mostrar los usuarios
   ngOnInit(): void {
@@ -37,6 +44,12 @@ export class GestionUsuariosComponent implements OnInit {
              user.usuario.toLowerCase().includes(this.searchText.toLowerCase()) ||
              user.rol.toLowerCase().includes(this.searchText.toLowerCase());
     });
+  }
+
+  agregarUsuario() {
+    this.dialog.open( AgregarUsuarioComponent, {
+      width: '90%'
+    })
   }
   
 }

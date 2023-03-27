@@ -37,9 +37,19 @@ export class GeotechService {
     return this.http.get<Solicitudes[]>(`${ this.url }/getSolicitudesPorId.php?id=${ id }`);
   }
 
-  // Obtener solicitudes por id:
+  // Anular solicitudes:
   anularSolicitud( id: number ): Observable<Solicitudes> {
     return this.http.get<Solicitudes>(`${ this.url }/anularSolicitud.php?id=${ id }`);
+  }
+
+  // Obtener solicitudes por estado:
+  getSolicitudesPorEstado( estado: string ): Observable<Solicitudes[]> {
+    return this.http.get<Solicitudes[]>(`${ this.url }/getSolicitudesPorEstado.php?estado=${ estado }`);
+  }
+
+  // Eliminar solicitudes por anuladas:
+  eliminarSolicitudAnulada( id: number ): Observable<Solicitudes> {
+    return this.http.get<Solicitudes>(`${ this.url }/eliminarSolicitudAnulada.php?id=${ id }`);
   }
 
   // Obtener los nodos

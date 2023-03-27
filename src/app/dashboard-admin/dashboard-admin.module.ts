@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 // Módulos
@@ -16,6 +17,7 @@ import { AtenderSolicitudesComponent } from './atender-solicitudes/atender-solic
 import { EditarSolicitudComponent } from './editar-solicitud/editar-solicitud.component';
 import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { SolicitudesAnuladasComponent } from './solicitudes-anuladas/solicitudes-anuladas.component';
 
 
 @NgModule({
@@ -28,9 +30,11 @@ import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.componen
     EditarSolicitudComponent,
     VerUsuarioComponent,
     EditarUsuarioComponent,
+    SolicitudesAnuladasComponent,
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FormsModule,
     DashboardAdminRoutingModule,
     MaterialModule,

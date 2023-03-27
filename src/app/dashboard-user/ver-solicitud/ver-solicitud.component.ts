@@ -24,7 +24,7 @@ export class VerSolicitudComponent {
     private snackBar : MatSnackBar,
   ) { }
 
-  // Lammada al servicio para mostrar los usuarios
+  // Llamada al servicio para mostrar las solicitudes
   ngOnInit(): void {
 
     // Id del tecnico que realiza la solicitud

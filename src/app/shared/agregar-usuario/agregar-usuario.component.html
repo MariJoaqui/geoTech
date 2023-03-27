@@ -1,0 +1,87 @@
+<div class="agregar-usuario">
+
+  <!-- Título -->
+  <h3>Nuevo usuario</h3>
+
+  <div class="formulario">
+    <form>
+      
+      <!-- Nombre y apellido -->
+      <div class="display-flex">
+        <div class="w-50">
+          <h5>Nombre</h5>
+          <div class="input-field">
+            <input 
+              type="text" 
+              class=""
+            >
+            <label class="">Nombre</label>
+          </div>
+        </div>
+        <div class="w-50">
+          <h5>Apellido</h5>
+          <div class="input-field">
+            <input 
+              type="text" 
+              class=""
+            >
+            <label class="">Apellido</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Correo y usuario -->
+      <div class="display-flex">
+        <div class="w-50">
+          <h5>Correo electrónico</h5>
+          <div class="input-field">
+            <input 
+              type="email" 
+              class=""
+            >
+            <label class="">Correo electrónico</label>
+          </div>
+        </div>
+        <div class="w-50">
+          <h5>Usuario</h5>
+          <div class="input-field">
+            <input 
+              type="text" 
+              class=""
+            >
+            <label class="">Usuario</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contraseña y rol -->
+      <div class="display-flex">
+        <div class="w-50">
+          <h5>Contraseña</h5>
+          <div class="input-field">
+            <input 
+              type="text" 
+              class=""
+            >
+            <label class="">Contraseña</label>
+          </div>
+        </div>
+        <div class="w-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Seleccionar rol</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let nodo of rol" [value]="nodo.value">
+                {{ nodo.name | titlecase }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <button class="btn waves-effect waves-light blue text-right guardar" type="submit">
+        Guardar cambios
+        <i class="material-icons right">save</i>
+      </button>
+    </form>
+  </div>
+</div>
