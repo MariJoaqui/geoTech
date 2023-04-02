@@ -4,7 +4,7 @@
   <h3>Perfil de usuario</h3>
 
   <div class="formulario">
-    <form>
+    <form [formGroup]="formulario" (ngSubmit)="actualizar()">
       
       <!-- Nombre y apellido -->
       <div class="display-flex">
@@ -13,9 +13,9 @@
           <div class="input-field">
             <input 
               type="text" 
-              class=""
+              formControlName="nombre"
             >
-            <label class="">{{ usuario.nombre | titlecase }}</label>
+            <label>{{ usuario.nombre | titlecase }}</label>
           </div>
         </div>
         <div class="w-50">
@@ -23,9 +23,9 @@
           <div class="input-field">
             <input 
               type="text" 
-              class=""
+              formControlName="apellido"
             >
-            <label class="">{{ usuario.apellido| titlecase }}</label>
+            <label>{{ usuario.apellido | titlecase }}</label>
           </div>
         </div>
       </div>
@@ -37,9 +37,9 @@
           <div class="input-field">
             <input 
               type="email" 
-              class=""
+              formControlName="correo"
             >
-            <label class="">{{ usuario.correo }}</label>
+            <label>{{ usuario.correo }}</label>
           </div>
         </div>
         <div class="w-50">
@@ -47,9 +47,9 @@
           <div class="input-field">
             <input 
               type="text" 
-              class=""
+              formControlName="usuario"
             >
-            <label class="">{{ usuario.usuario | lowercase }}</label>
+            <label>{{ usuario.usuario | lowercase }}</label>
           </div>
         </div>
       </div>
@@ -61,24 +61,27 @@
           <div class="input-field">
             <input 
               type="text" 
-              class=""
+              formControlName="clave"
             >
-            <label class="">{{ usuario.clave }}</label>
+            <label>{{ usuario.clave }}</label>
           </div>
         </div>
         <div class="w-50">
           <mat-form-field appearance="fill">
             <mat-label>Seleccionar rol</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let nodo of rol" [value]="nodo.value">
-                {{ nodo.name | titlecase }}
+            <mat-select formControlName="rol">
+              <mat-option *ngFor="let rol of rol" [value]="rol.name">
+                {{ rol.name | titlecase }}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
       </div>
       
-      <button class="btn waves-effect waves-light blue text-right guardar" type="submit">
+      <button 
+        class="btn waves-effect waves-light blue text-right guardar" 
+        type="submit"
+      >
         Guardar cambios
         <i class="material-icons right">save</i>
       </button>

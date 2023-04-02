@@ -15,8 +15,6 @@ export class ServicesService {
   // private urlLogin = 'geotech-server/conexion/proceso-login.php';
   private urlCorreo = 'http://localhost/geotech-server/procesos/validarCorreo.php';
 
-
-
   // Servicios externos
   constructor( private http: HttpClient ) { }
 

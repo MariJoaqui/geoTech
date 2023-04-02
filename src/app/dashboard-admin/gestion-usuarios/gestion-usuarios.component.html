@@ -33,7 +33,7 @@
     <tbody>
       <tr *ngFor="let user of filteredUsers; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ user.nombre + ' ' + user.apellido }}</td>
+        <td>{{ user.nombre + ' ' + user.apellido | titlecase }}</td>
         <td class="display-none1">{{ user.usuario }}</td>
         <td class="display-none1">{{ user.rol | titlecase }}</td>
         <td class="button-width">
@@ -51,7 +51,7 @@
           </a>
         </td>
         <td class="button-width">
-          <a class="waves-effect btn-small red">
+          <a class="waves-effect btn-small red" (click)="eliminar( user.id )">
             <i class="material-icons">
               delete
             </i>

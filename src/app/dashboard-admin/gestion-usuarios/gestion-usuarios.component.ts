@@ -9,6 +9,7 @@ import { Usuarios } from 'src/app/auth/interface/auth.interface';
 
 // Componentes
 import { AgregarUsuarioComponent } from 'src/app/shared/agregar-usuario/agregar-usuario.component';
+import { ConfirmarEliminarComponent } from 'src/app/shared/confirmar-eliminar/confirmar-eliminar.component';
 
 @Component({
   selector: 'app-gestion-usuarios',
@@ -46,10 +47,39 @@ export class GestionUsuariosComponent implements OnInit {
     });
   }
 
+  // Agregar usuario
   agregarUsuario() {
     this.dialog.open( AgregarUsuarioComponent, {
       width: '90%'
     })
+  }
+
+  // Eliminar usuario
+  eliminar( id: any ) {
+
+    this.dialog.open( ConfirmarEliminarComponent, {
+      width: '25rem',
+      data: id
+    })
+
+    // this.geotechService.eliminarSolicitudAnulada( id )
+    //   .subscribe( respuesta => {
+        
+    //     console.log(respuesta);
+        
+    //     // Eliminar el elemento del arreglo solicitudes correspondiente al id dado
+    //     const index = this.users.findIndex(user => user.id === id);
+    //     if (index !== -1) {
+    //       this.users.splice(index, 1);
+    //     }
+
+    //     // Mensaje
+    //     this.snackBar.open('Se ha eliminado correctamente', 'Cerrar', {
+    //       duration: 5000
+    //     });
+
+    //   }
+    // );
   }
   
 }

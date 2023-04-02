@@ -49,7 +49,12 @@ export class GeotechService {
 
   // Eliminar solicitudes por anuladas:
   eliminarSolicitudAnulada( id: number ): Observable<Solicitudes> {
-    return this.http.get<Solicitudes>(`${ this.url }/eliminarSolicitudAnulada.php?id=${ id }`);
+    return this.http.get<Solicitudes>(`${ this.url }/eliminar.php?id=${ id }`);
+  }
+
+  // Eliminar usuario:
+  eliminarUsuario( id: number ): Observable<any> {
+    return this.http.delete<any>(`${ this.url }/eliminarUsuario.php?id=${ id }`);
   }
 
   // Obtener los nodos
@@ -85,6 +90,37 @@ export class GeotechService {
     
     // Petición POST al archivo PHP
     return this.http.post<Solicitudes>( `${ this.url }/crearSolicitud.php`, JSON.stringify(datos), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+
+  }
+
+  // Actualizar usuarios (Administrador)
+  editarUsuarios(
+    id       : number,
+    nombre   : string,
+    apellido : string,
+    correo   : string,
+    usuario  : string,
+    clave    : string,
+    rol      : string 
+  ): Observable<any> {
+
+    // Objeto con los datos del formulario
+    const datos = {
+      id       : id,
+      nombre   : nombre,
+      apellido : apellido,
+      correo   : correo,
+      usuario  : usuario,
+      clave    : clave,
+      rol      : rol
+    };
+    
+    // Petición POST al archivo PHP
+    return this.http.post<any>( `${ this.url }/editarUsuarios.php`, JSON.stringify(datos), {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
