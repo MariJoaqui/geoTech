@@ -32,25 +32,33 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of filteredUsers; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ user.nombre + ' ' + user.apellido | titlecase }}</td>
-        <td class="display-none1">{{ user.usuario }}</td>
-        <td class="display-none1">{{ user.rol | titlecase }}</td>
-        <td class="button-width">
+        <td *ngIf="user.nombre != '' || user.apellido != '' || user.usuario != ''">
+          {{ i + 1 }}
+        </td>
+        <td *ngIf="user.nombre != '' || user.apellido != '' || user.usuario != ''">
+          {{ user.nombre + ' ' + user.apellido | titlecase }}
+        </td>
+        <td *ngIf="user.nombre != '' || user.apellido != '' || user.usuario != ''" class="display-none1">
+          {{ user.usuario }}
+        </td>
+        <td *ngIf="user.nombre != '' || user.apellido != '' || user.usuario != ''" class="display-none1">
+          {{ user.rol | titlecase }}
+        </td>
+        <td *ngIf="user.nombre != '' || user.apellido != '' || user.usuario != ''" class="button-width">
           <a class="waves-effect btn-small info" [routerLink]="['/dashboard-admin/detalles-usuario', user.id ]">
             <i class="material-icons">
               feed
             </i>
           </a>
         </td>
-        <td class="button-width">
+        <td *ngIf="user.nombre != '' || user.apellido != '' || user.usuario != ''" class="button-width">
           <a class="waves-effect btn-small blue" [routerLink]="['/dashboard-admin/editar-usuario', user.id ]">
             <i class="material-icons">
               edit
             </i>
           </a>
         </td>
-        <td class="button-width">
+        <td *ngIf="user.nombre != '' || user.apellido != '' || user.usuario != ''" class="button-width">
           <a class="waves-effect btn-small red" (click)="eliminar( user.id )">
             <i class="material-icons">
               delete

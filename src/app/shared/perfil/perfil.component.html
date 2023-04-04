@@ -4,7 +4,7 @@
   <h3>Mi perfil</h3>
 
   <div class="formulario">
-    <form>
+    <form [formGroup]="formulario" (ngSubmit)="actualizar()">
       
       <!-- Nombre y apellido -->
       <div class="display-flex">
@@ -12,7 +12,8 @@
           <h5>Nombre</h5>
           <div class="input-field">
             <input 
-              type="text" 
+              type="text"
+              formControlName="nombre" 
             >
             <label>{{ usuario.nombre | titlecase }}</label>
           </div>
@@ -22,6 +23,7 @@
           <div class="input-field">
             <input 
               type="text" 
+              formControlName="apellido"
             >
             <label>{{ usuario.apellido | titlecase }}</label>
           </div>
@@ -35,6 +37,7 @@
           <div class="input-field">
             <input 
               type="email" 
+              formControlName="correo"
             >
             <label>{{ usuario.correo }}</label>
           </div>
@@ -44,6 +47,7 @@
           <div class="input-field">
             <input 
               type="text" 
+              formControlName="usuario"
             >
             <label>{{ usuario.usuario }}</label>
           </div>

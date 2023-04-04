@@ -4,7 +4,7 @@
   <h3>Nuevo usuario</h3>
 
   <div class="formulario">
-    <form>
+    <form [formGroup]="formulario" (ngSubmit)="guardar()">
       
       <!-- Nombre y apellido -->
       <div class="display-flex">
@@ -13,9 +13,10 @@
           <div class="input-field">
             <input 
               type="text" 
-              class=""
+              formControlName="nombre"
             >
-            <label class="">Nombre</label>
+            <label>Nombre</label>
+            <span class="mensaje" *ngIf="campoEsValido('nombre')">Complete este campo</span>
           </div>
         </div>
         <div class="w-50">
@@ -23,9 +24,10 @@
           <div class="input-field">
             <input 
               type="text" 
-              class=""
+              formControlName="apellido"
             >
-            <label class="">Apellido</label>
+            <label>Apellido</label>
+            <span class="mensaje" *ngIf="campoEsValido('apellido')">Complete este campo</span>
           </div>
         </div>
       </div>
@@ -37,9 +39,10 @@
           <div class="input-field">
             <input 
               type="email" 
-              class=""
+              formControlName="correo"
             >
-            <label class="">Correo electrónico</label>
+            <label>Correo electrónico</label>
+            <span class="mensaje" *ngIf="campoEsValido('correo')">Formato incorrecto</span>
           </div>
         </div>
         <div class="w-50">
@@ -47,9 +50,10 @@
           <div class="input-field">
             <input 
               type="text" 
-              class=""
+              formControlName="usuario"
             >
-            <label class="">Usuario</label>
+            <label>Usuario</label>
+            <span class="mensaje" *ngIf="campoEsValido('usuario')">Formato incorrecto</span>
           </div>
         </div>
       </div>
@@ -61,16 +65,17 @@
           <div class="input-field">
             <input 
               type="text" 
-              class=""
+              formControlName="clave"
             >
-            <label class="">Contraseña</label>
+            <label>Contraseña</label>
+            <span class="mensaje" *ngIf="campoEsValido('clave')">Al menos 8 caracteres</span>
           </div>
         </div>
         <div class="w-50">
           <mat-form-field appearance="fill">
             <mat-label>Seleccionar rol</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let nodo of rol" [value]="nodo.value">
+            <mat-select formControlName="rol">
+              <mat-option *ngFor="let nodo of rol" [value]="nodo.name">
                 {{ nodo.name | titlecase }}
               </mat-option>
             </mat-select>
@@ -78,7 +83,11 @@
         </div>
       </div>
       
-      <button class="btn waves-effect waves-light blue text-right guardar" type="submit">
+      <button 
+        class="btn waves-effect waves-light blue text-right guardar" 
+        type="submit"
+        [disabled]="formulario.invalid"
+      >
         Guardar cambios
         <i class="material-icons right">save</i>
       </button>

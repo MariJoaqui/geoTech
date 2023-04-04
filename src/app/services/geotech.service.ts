@@ -128,4 +128,59 @@ export class GeotechService {
 
   }
 
+  editarPerfil(
+    id       : number,
+    nombre   : string,
+    apellido : string,
+    correo   : string,
+    usuario  : string
+  ): Observable<any> {
+
+    // Objeto con los datos del formulario
+    const datos = {
+      id       : id,
+      nombre   : nombre,
+      apellido : apellido,
+      correo   : correo,
+      usuario  : usuario
+    };
+    
+    // Petición POST al archivo PHP
+    return this.http.post<any>( `${ this.url }/editarPerfil.php`, JSON.stringify(datos), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+
+  }
+
+  // Ingresar usuario
+  agregarUsuario(
+    nombre   : string,
+    apellido : string,
+    correo   : string,
+    usuario  : string,
+    clave    : string,
+    rol      : string 
+  ): Observable<any> {
+
+    // Objeto con los datos del formulario
+    const datos = {
+      nombre   : nombre,
+      apellido : apellido,
+      correo   : correo,
+      usuario  : usuario,
+      clave    : clave,
+      rol      : rol
+    };
+    
+    // Petición POST al archivo PHP
+    return this.http.post<any>( `${ this.url }/nuevoUsuario.php`, JSON.stringify(datos), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+
+  }
+
 }

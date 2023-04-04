@@ -17,11 +17,11 @@ export class LoginComponent {
 
   // Servicios
   constructor( 
-    private fb       : FormBuilder,
-    private router   : Router,
-    private services : ServicesService,
-    private snackBar : MatSnackBar,
-    private Validator: ValidatorService,
+    private fb        : FormBuilder,
+    private router    : Router,
+    private services  : ServicesService,
+    private snackBar  : MatSnackBar,
+    private Validator : ValidatorService,
   ) {}
 
   // Formulario y validaciones

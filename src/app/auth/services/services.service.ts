@@ -14,6 +14,9 @@ export class ServicesService {
   private urlLogin = 'http://localhost/geotech-server/conexion/proceso-login.php';
   // private urlLogin = 'geotech-server/conexion/proceso-login.php';
   private urlCorreo = 'http://localhost/geotech-server/procesos/validarCorreo.php';
+  // private urlCorreo = 'geotech-server/procesos/validarCorreo.php';
+  private urlClave = 'http://localhost/geotech-server/procesos/cambiarClave.php';
+  // private urlClave = 'geotech-server/procesos/cambiarClave.php';
 
   // Servicios externos
   constructor( private http: HttpClient ) { }
@@ -44,6 +47,21 @@ export class ServicesService {
     }
 
     return this.http.post<any>( this.urlCorreo, JSON.stringify(datos), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
+  // Cambiar clave
+  cambiarclave( id: number, clave: string ): Observable<any> {
+
+    const datos = {
+      id     : id,
+      clave : clave
+    }
+
+    return this.http.post<any>( this.urlClave, JSON.stringify(datos), {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

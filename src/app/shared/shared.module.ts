@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 // Módulos
 import { MaterialModule } from '../material/material.module';
@@ -17,7 +19,9 @@ import { ConfirmarEliminarComponent } from './confirmar-eliminar/confirmar-elimi
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
   ]
 })
 export class SharedModule { }

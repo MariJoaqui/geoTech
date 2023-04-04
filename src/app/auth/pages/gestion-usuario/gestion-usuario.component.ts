@@ -46,10 +46,10 @@ export class GestionUsuarioComponent {
     this.serviceService.validarCorreo(correo).subscribe((existe) => {
 
       if ( existe.success == true ) {
-
+        
         this.dialog.open( RecuperarContrasenaComponent, {
           width: '90%',
-          data: existe.usuario
+          data: existe.id
         })
 
       }

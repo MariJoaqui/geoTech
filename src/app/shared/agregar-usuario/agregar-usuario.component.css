@@ -9,6 +9,9 @@ h3, h5 {
   text-align: center;
   width: 50%;
 }
+.mensaje {
+  color: #e64a32;
+}
 
 /* Formulario */
 .formulario {
@@ -70,6 +73,38 @@ mat-form-field {
   .input-field input,
   mat-form-field {
     width: 100%;
+  }
+
+}
+@media (max-width: 900px) {
+
+  .agregar-usuario {
+    padding: 0 1rem 1rem 1rem;
+  }
+  .formulario {
+    height: 300px !important;
+    overflow:auto !important;
+    box-sizing: border-box !important;
+  }
+  .formulario::-webkit-scrollbar {
+    -webkit-appearance: none !important;
+  }
+  .formulario::-webkit-scrollbar:vertical {
+    width:10px !important;
+  }
+  .formulario::-webkit-scrollbar-button:increment,.formulario::-webkit-scrollbar-button {
+    display: none  !important;
+  } 
+  .formulario::-webkit-scrollbar:horizontal {
+    height: 10px !important;
+  }
+  .formulario::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3 !important;
+    border-radius: 20px !important;
+    border: 2px solid #f1f2f3 !important;
+  }
+  .formulario::-webkit-scrollbar-track {
+    border-radius: 10px !important;  
   }
 
 }
