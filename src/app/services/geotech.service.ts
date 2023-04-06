@@ -183,4 +183,39 @@ export class GeotechService {
 
   }
 
+  // Subir archivos
+  subirArchivos( id_solicitud: number, archivo: string ): Observable<any> {
+
+    // Objeto con los datos del formulario
+    const datos = {
+      id_solicitud : id_solicitud,
+      archivo      : archivo
+    };
+    
+    // Petición POST al archivo PHP
+    return this.http.post<any>( `${ this.url }/subirArchivos.php`, JSON.stringify(datos), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+
+  }
+
+  // Agregar observaciones
+  agregarObservaciones( id_solicitud: number, observacion: string ): Observable<any> {
+
+    // Objeto con los datos del formulario
+    const datos = {
+      id_solicitud : id_solicitud,
+      observacion  : observacion
+    };
+    
+    // Petición POST al archivo PHP
+    return this.http.post<any>( `${ this.url }/agregarObservaciones.php`, JSON.stringify(datos), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+
+  }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 // Interface
 import { Solicitudes } from 'src/app/auth/interface/auth.interface';
@@ -15,6 +16,18 @@ export class SolicitudesProcesadasComponent {
  
   // Arreglo para obtener las solicitudes de la base dde datos
   solicitudes: Solicitudes[] = [];
+
+  // Calendario
+  showInfo = false;
+
+  toggleInfo() {
+    this.showInfo = !this.showInfo;
+  }
+
+  range = new FormGroup({
+    inicio: new FormControl<Date | null>(null),
+    fin: new FormControl<Date | null>(null),
+  });
 
   // Servicios
   constructor( 

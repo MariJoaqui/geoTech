@@ -16,6 +16,31 @@
       </div>
     </div>
   </div>
+
+  <!-- Filtro por fecha -->
+  <div class="filtrar-fechas">
+    <a class="waves-effect waves-light btn blue" (click)="toggleInfo()">
+      <i class="material-icons right">filter_list</i>
+      Filtrar
+    </a>
+  </div>
+
+  <!-- Calendario -->  
+  <mat-form-field appearance="fill" class="filtrar-fechas" *ngIf="showInfo">
+    <mat-label>Rango de tiempo</mat-label>
+    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+      <input matStartDate formControlName="inicio" placeholder="inicio">
+      <input matEndDate formControlName="fin" placeholder="fin">
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  
+    <mat-error *ngIf="range.controls.inicio.hasError('matinicioDateInvalid')">Fecha de inicio invalida</mat-error>
+    <mat-error *ngIf="range.controls.fin.hasError('matfinDateInvalid')">Fecha final invalida</mat-error>
+  </mat-form-field>
+  
+  <!-- <p>Selected range: {{range.value | json}}</p>  -->
   
   <!-- Tabla de usuarios -->
   <table responsive-table>

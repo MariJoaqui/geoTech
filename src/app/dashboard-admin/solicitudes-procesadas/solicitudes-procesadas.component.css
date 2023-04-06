@@ -38,6 +38,19 @@ h3 {
   z-index: 1;
 }
 
+/* Filtrar fechas*/
+.filtrar-fechas {
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+}
+.filtrar-fechas a {
+  margin-left: auto;
+}
+.filtrar-fechas input {
+  height: 2rem;
+}
+
 /*Tabla */
 table { 
   margin: 2.6rem 0; 

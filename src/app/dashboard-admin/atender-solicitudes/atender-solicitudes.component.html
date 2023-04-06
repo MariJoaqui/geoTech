@@ -50,14 +50,13 @@
       <div class="file-field input-field">
         <div class="btn blue">
           <span>Subir archivos</span>
-          <input type="file">
+          <input type="file" (change)="onFileSelected($event)" multiple>
         </div>
         <div class="file-path-wrapper">
           <input 
             class="file-path validate" 
             type="text" 
             placeholder="Cargar uno o más archivos"
-            formControlName="archivo"
           >
         </div>
       </div>
@@ -74,7 +73,7 @@
       <button 
         class="btn waves-effect waves-light blue text-right" 
         type="submit"
-        [disabled]="formulario.invalid"
+        [disabled]=""
       >
         Enviar
         <i class="material-icons right">send</i>
