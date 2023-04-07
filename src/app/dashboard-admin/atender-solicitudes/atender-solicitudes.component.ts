@@ -38,6 +38,7 @@ export class AtenderSolicitudesComponent {
 
   // Arreglo para guardar los archivos
   binaryStrings: string[] = [];
+  nombres      : string[] = [];
 
   // Vuelve el archivo binario para subirlo en la bdd
   onFileSelected( event: any ) {
@@ -49,6 +50,7 @@ export class AtenderSolicitudesComponent {
       reader.onload = () => {
         const base64String = reader.result as string;
         this.binaryStrings.push(base64String);
+        this.nombres.push(file.name);
       };
       reader.readAsDataURL(file);
     }
@@ -61,10 +63,8 @@ export class AtenderSolicitudesComponent {
     const observacion  = this.formulario.get('observaciones')?.value;
 
     for( let i = 0; i < this.binaryStrings.length; i++ ){
-
-      const archivo = this.binaryStrings[i];
         
-      this.geotechService.subirArchivos( id_solicitud, archivo ).subscribe( respuesta => {
+      this.geotechService.subirArchivos( id_solicitud, this.nombres[i], this.binaryStrings[i] ).subscribe( respuesta => {
         if ( respuesta.success ) {
 
           // Mensaje
@@ -73,14 +73,12 @@ export class AtenderSolicitudesComponent {
           });
 
           this.router.navigate(['/dashboard-admin/solicitudes-pendientes']);
-
         }
       })
     }
 
     this.geotechService.agregarObservaciones( id_solicitud, observacion ).subscribe( respuesta => {
       console.log(respuesta);
-      
     })
   }
 

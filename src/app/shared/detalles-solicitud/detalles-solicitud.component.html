@@ -45,19 +45,21 @@
       </div>
       
       <!-- Archivos -->
-      <h5 *ngIf="solicitud.estado == 'pendiente'" class="text-left">Archivos adjuntos</h5>
-      <div *ngIf="solicitud.estado == 'pendiente'" class="file-field input-field">
-        <a routerLink="">ArchivoKMZ.kmz</a>
-        <a routerLink="">ArchivoPDF.pdf</a>
-        <a routerLink="">ArchivoPDF.pdf</a>
-        <a routerLink="">ArchivoPDF.pdf</a>
+      <h5 *ngIf="solicitud.estado == 'procesada'" class="text-left">Archivos adjuntos</h5>
+      <div *ngIf="solicitud.estado == 'procesada'" class="file-field input-field">
+        <a 
+          *ngFor="let archivo of archivos" 
+          (click)="descargarArchivo(archivo.archivo, archivo.nombre)"
+          class="enlace"
+          target="_blank">
+          {{ archivo.nombre }}
+        </a>
       </div>
 
       <!-- Observaciones -->
-      <h5 *ngIf="solicitud.estado == 'pendiente'" class="text-left">Observaciones</h5>
-      <div *ngIf="solicitud.estado == 'pendiente'" class="row observaciones">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum rerum excepturi veniam possimus! Rerum repudiandae eveniet consequatur repellat libero, temporibus harum ipsam minus, deserunt adipisci maxime. Sit tempore ea rerum.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, placeat? Ullam sunt laudantium, numquam a quia laborum deleniti? Provident culpa, ipsam consectetur optio a doloremque earum distinctio dicta maxime veniam.
+      <h5 *ngIf="solicitud.estado == 'procesada'" class="text-left">Observaciones</h5>
+      <div *ngIf="solicitud.estado == 'procesada'" class="row observaciones">
+        {{ solicitud.observaciones_admin }}
       </div>
   </div>
 </div>

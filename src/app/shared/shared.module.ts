@@ -9,13 +9,15 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
 import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
 import { ConfirmarEliminarComponent } from './confirmar-eliminar/confirmar-eliminar.component';
+import { DetallesSolicitudComponent } from './detalles-solicitud/detalles-solicitud.component';
 
 @NgModule({
   declarations: [
     PerfilComponent,
     RecuperarContrasenaComponent,
     AgregarUsuarioComponent,
-    ConfirmarEliminarComponent
+    ConfirmarEliminarComponent,
+    DetallesSolicitudComponent
   ],
   imports: [
     CommonModule,

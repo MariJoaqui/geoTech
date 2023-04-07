@@ -6,6 +6,9 @@ h3, h5, h6 {
   color: #1B4970; 
   text-align: center;
 }
+.enlace {
+  cursor: pointer;
+}
 
 /* Borde */
 .borde {
