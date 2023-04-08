@@ -49,7 +49,7 @@
       <div *ngIf="solicitud.estado == 'procesada'" class="file-field input-field">
         <a 
           *ngFor="let archivo of archivos" 
-          (click)="descargarArchivo(archivo.archivo, archivo.nombre)"
+          (click)="verArchivo(archivo.archivo, archivo.nombre)"
           class="enlace"
           target="_blank">
           {{ archivo.nombre }}

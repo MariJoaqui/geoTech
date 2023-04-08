@@ -18,16 +18,34 @@ export class SolicitudesProcesadasComponent {
   solicitudes: Solicitudes[] = [];
 
   // Calendario
-  showInfo = false;
+  showInfo  = false;
+  showTable = true;
 
   toggleInfo() {
-    this.showInfo = !this.showInfo;
+    this.showInfo  = !this.showInfo;
+    this.showTable = !this.showTable;
   }
 
   range = new FormGroup({
     inicio: new FormControl<Date | null>(null),
     fin: new FormControl<Date | null>(null),
   });
+
+  get filtrarPorFechas() {
+    const inicio = this.range.controls.inicio.value;
+    const fin = this.range.controls.fin.value;
+  
+    if (inicio && fin) {
+      const filtrarSolicitudes = this.solicitudes.filter(solicitud => {
+        const fecha = new Date(solicitud.fecha!);
+        return fecha >= inicio && fecha <= fin;
+      });
+      return filtrarSolicitudes.reverse();
+    } 
+    else {
+      return this.solicitudes.reverse();
+    }
+  }
 
   // Servicios
   constructor( 
@@ -45,6 +63,7 @@ export class SolicitudesProcesadasComponent {
 
   }
 
+  // Filtrar para el buscador
   get filteredSolicitudes() {
     return this.solicitudes.filter(solicitud => {
       return solicitud.evento.toLowerCase().includes(this.searchText.toLowerCase()) ||

@@ -35,18 +35,60 @@ export class DetallesSolicitudComponent {
     
   }
 
-  descargarArchivo(archivo: string, nombre: string): void {
+  
+  verArchivo( archivo: string, nombre: string ): void {
     const ultimasTres = nombre.substr(-3);
     
     if ( ultimasTres == 'PDF' || ultimasTres == 'pdf' ) {
-      console.log('si');
+
+      const byteCharacters = archivo;
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const pdfData = new Blob([byteArray], { type: 'application/pdf' });
+      const url = URL.createObjectURL(pdfData);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = nombre;
+      link.click();
+      URL.revokeObjectURL(url);
+
     }
     else if ( ultimasTres == 'KMZ' || ultimasTres == 'kmz' ) {
-      console.log('no');
       
+      const byteCharacters = archivo;
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const pdfData = new Blob([byteArray], { type: 'application/kmz' });
+      const url = URL.createObjectURL(pdfData);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = nombre;
+      link.click();
+      URL.revokeObjectURL(url);
+
     }
     else if ( ultimasTres == 'JPG' || ultimasTres == 'jpg' ) {
-      console.log('cerca');
+      
+      const byteCharacters = archivo;
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const pdfData = new Blob([byteArray], { type: 'application/jpeg' });
+      const url = URL.createObjectURL(pdfData);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = nombre;
+      link.click();
+      URL.revokeObjectURL(url);
+
     }
     else {
       // Mensaje
@@ -54,7 +96,8 @@ export class DetallesSolicitudComponent {
         duration: 5000 
       });
     }
+
+    
   }
-  
 
 }
