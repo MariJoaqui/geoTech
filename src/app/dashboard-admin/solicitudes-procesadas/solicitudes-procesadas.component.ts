@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 // Interface
 import { Solicitudes } from 'src/app/auth/interface/auth.interface';
 import { GeotechService } from 'src/app/services/geotech.service';
+import { DescargarPdfComponent } from 'src/app/shared/descargar-pdf/descargar-pdf.component';
 
 @Component({
   selector: 'app-solicitudes-procesadas',
@@ -20,6 +22,9 @@ export class SolicitudesProcesadasComponent {
   // Calendario
   showInfo  = false;
   showTable = true;
+
+  inicio: any;
+  fin   : any;
 
   toggleInfo() {
     this.showInfo  = !this.showInfo;
@@ -40,7 +45,7 @@ export class SolicitudesProcesadasComponent {
         const fecha = new Date(solicitud.fecha!);
         return fecha >= inicio && fecha <= fin;
       });
-      return filtrarSolicitudes.reverse();
+      return filtrarSolicitudes;
     } 
     else {
       return this.solicitudes.reverse();
@@ -49,6 +54,7 @@ export class SolicitudesProcesadasComponent {
 
   // Servicios
   constructor( 
+    private dialog        : MatDialog,
     private geotechService: GeotechService, 
   ) { }
 
@@ -73,4 +79,17 @@ export class SolicitudesProcesadasComponent {
     });
   }
 
+  descargar() {
+    this.inicio = this.range.controls.inicio.value;
+    this.fin = this.range.controls.fin.value;
+
+    this.dialog.open( DescargarPdfComponent, {
+      width: '90%',
+      data: { 
+        fechas: this.filtrarPorFechas,
+        inicio: this.inicio,
+        fin: this.fin
+      }
+    });
+  }
 }

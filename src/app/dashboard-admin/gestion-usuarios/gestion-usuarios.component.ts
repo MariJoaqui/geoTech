@@ -60,26 +60,8 @@ export class GestionUsuariosComponent implements OnInit {
     this.dialog.open( ConfirmarEliminarComponent, {
       width: '25rem',
       data: id
-    })
+    });
 
-    // this.geotechService.eliminarSolicitudAnulada( id )
-    //   .subscribe( respuesta => {
-        
-    //     console.log(respuesta);
-        
-    //     // Eliminar el elemento del arreglo solicitudes correspondiente al id dado
-    //     const index = this.users.findIndex(user => user.id === id);
-    //     if (index !== -1) {
-    //       this.users.splice(index, 1);
-    //     }
-
-    //     // Mensaje
-    //     this.snackBar.open('Se ha eliminado correctamente', 'Cerrar', {
-    //       duration: 5000
-    //     });
-
-    //   }
-    // );
   }
   
 }

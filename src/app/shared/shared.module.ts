@@ -10,6 +10,7 @@ import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-c
 import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
 import { ConfirmarEliminarComponent } from './confirmar-eliminar/confirmar-eliminar.component';
 import { DetallesSolicitudComponent } from './detalles-solicitud/detalles-solicitud.component';
+import { DescargarPdfComponent } from './descargar-pdf/descargar-pdf.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DetallesSolicitudComponent } from './detalles-solicitud/detalles-solici
     RecuperarContrasenaComponent,
     AgregarUsuarioComponent,
     ConfirmarEliminarComponent,
-    DetallesSolicitudComponent
+    DetallesSolicitudComponent,
+    DescargarPdfComponent
   ],
   imports: [
     CommonModule,

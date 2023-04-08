@@ -1,0 +1,49 @@
+<!-- Tabla que se va a dercargar -->
+<div id="descargar" class="descarga-body">
+  <div class="display-flex">
+    <div>
+      <p>Fecha: {{ fechaActual | date:'dd/MM/yyyy' }}</p>
+      <p>Hora: {{ militaryTime }}</p>
+      <p>Usuario: {{ usuario.nombre + ' ' + usuario.apellido | titlecase }}</p>
+      <p>Rango: {{ inicio | date:'dd/MM/yyyy' }} - {{ fin | date:'dd/MM/yyyy' }}</p>
+    </div>
+    <div class="img">
+      <img src="../../../assets/img/logos/logo-sin-fondo.png">
+    </div>
+  </div>
+
+  <h4 class="titulo">GeoTech</h4>
+    
+  <table responsive-table>
+    <thead>
+      <tr class="white-text">
+        <th>Fecha</th>
+        <th>Evento</th>
+        <th>Solicitante</th>
+        <th>Unidad</th>
+        <th>Red</th>
+        <th>Nivel</th>
+        <th>Hora</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filtrarPorFechas; let i = index">
+        <td>{{ item.fecha | date:'dd/MM/yyyy' }}</td>
+        <td>{{ item.evento }}</td>
+        <td>{{ item.nombreTecnico + ' ' + item.apellidoTecnico | titlecase }}</td>
+        <td>{{ item.unidad }}</td>
+        <td>{{ item.red }}</td>
+        <td>{{ item.nivel }}</td>
+        <td>{{ item.hora }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Descargar -->
+<div class="btn-descarga">
+  <a class="waves-effect waves-light btn red" (click)="descargar()" download="nombre_personalizado.pdf">
+    <i class="material-icons right">file_download</i>
+    Descargar PDF
+  </a>
+</div>

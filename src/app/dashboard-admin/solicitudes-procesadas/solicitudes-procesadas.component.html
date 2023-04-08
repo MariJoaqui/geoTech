@@ -39,6 +39,14 @@
     <mat-error *ngIf="range.controls.inicio.hasError('matinicioDateInvalid')">Fecha de inicio invalida</mat-error>
     <mat-error *ngIf="range.controls.fin.hasError('matfinDateInvalid')">Fecha final invalida</mat-error>
   </mat-form-field>
+
+  <!-- Descargar -->
+  <div class="filtrar-fechas" *ngIf="showInfo">
+    <a class="waves-effect waves-light btn red" (click)="descargar()">
+      <i class="material-icons right">file_download</i>
+      Descargar
+    </a>
+  </div>
   
   <!-- Tabla de usuarios -->
   <table responsive-table *ngIf="showTable">

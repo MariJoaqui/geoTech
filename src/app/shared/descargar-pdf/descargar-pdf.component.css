@@ -1,0 +1,42 @@
+/* Global */
+.descarga-body {
+  padding: 1.5rem !important;
+}
+.img {
+  margin-left: auto;
+}
+.img, .img img {
+  height: 5rem;
+  width: 5rem;
+}
+.titulo {
+  text-align: center;
+}
+
+/*Tabla */
+table { 
+  margin: 1.6rem 0; 
+}
+thead { 
+  background: #1B4970; 
+}
+thead th { 
+  font-weight: 500; 
+}
+th, td { 
+  border-radius: 0 !important;
+  padding: 0.938rem;
+}
+.button-width { 
+  width: 5rem; 
+}
+.add-button { 
+  text-align: center;
+  width: 100%;
+}
+.btn-descarga {
+  display: flex;
+  justify-content: center !important;
+  margin-bottom: 2rem;
+  width: 100%;
+}
