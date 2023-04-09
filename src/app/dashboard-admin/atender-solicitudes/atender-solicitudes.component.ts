@@ -47,14 +47,13 @@ export class AtenderSolicitudesComponent {
     for ( let i = 0; i < selectedFiles.length; i++ ) {
       const file = selectedFiles[i];
       const reader = new FileReader();
+      reader.readAsDataURL(selectedFiles[i]);
       reader.onload = () => {
-        const base64String = reader.result as string;
-        this.binaryStrings.push(base64String);
+        const base64 = reader.result!.toString().split(',')[1];
+        this.binaryStrings.push(base64);
         this.nombres.push(file.name);
       };
-      reader.readAsDataURL(file);
     }
-  
   }
 
   // Enviar respuesta

@@ -186,15 +186,14 @@ export class GeotechService {
   // Subir archivos
   subirArchivos( id_solicitud: number, nombre: string, archivo: string ): Observable<any> {
 
-    // Cadena de texto con los datos del formulario
-    const datos = `${id_solicitud},${nombre},${archivo}`;
+    const datos = {
+      id_solicitud : id_solicitud,
+      nombre       : nombre,
+      archivo      : archivo
+    }
 
     // Petición POST al archivo PHP
-    return this.http.post<any>(`${this.url}/subirArchivos.php`, datos, {
-      headers: new HttpHeaders({
-        'Content-Type': 'text/plain'
-      })
-    });
+    return this.http.post<any>(`${this.url}/subirArchivos.php`, JSON.stringify(datos));
   }
 
   // Agregar observaciones

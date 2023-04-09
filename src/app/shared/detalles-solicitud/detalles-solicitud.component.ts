@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
+import * as FileSaver from 'file-saver';
 
 // Servicios
 import { GeotechService } from 'src/app/services/geotech.service';
@@ -35,69 +36,22 @@ export class DetallesSolicitudComponent {
     
   }
 
-  
   verArchivo( archivo: string, nombre: string ): void {
-    const ultimasTres = nombre.substr(-3);
-    
-    if ( ultimasTres == 'PDF' || ultimasTres == 'pdf' ) {
-
-      const byteCharacters = archivo;
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const pdfData = new Blob([byteArray], { type: 'application/pdf' });
-      const url = URL.createObjectURL(pdfData);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = nombre;
-      link.click();
-      URL.revokeObjectURL(url);
-
-    }
-    else if ( ultimasTres == 'KMZ' || ultimasTres == 'kmz' ) {
       
-      const byteCharacters = archivo;
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const pdfData = new Blob([byteArray], { type: 'application/kmz' });
-      const url = URL.createObjectURL(pdfData);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = nombre;
-      link.click();
-      URL.revokeObjectURL(url);
-
+    const byteCharacters = atob(archivo);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
     }
-    else if ( ultimasTres == 'JPG' || ultimasTres == 'jpg' ) {
-      
-      const byteCharacters = archivo;
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const pdfData = new Blob([byteArray], { type: 'application/jpeg' });
-      const url = URL.createObjectURL(pdfData);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = nombre;
-      link.click();
-      URL.revokeObjectURL(url);
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'application/octet-stream' });
+    const url = URL.createObjectURL(blob);
+    const enlace = document.createElement('a');
+    enlace.href = url;
+    enlace.download = nombre;
+    enlace.click();
+    URL.revokeObjectURL(url);
 
-    }
-    else {
-      // Mensaje
-      this.snackBar.open('No se puede abrir este tipo de archivo', 'Cerrar', {
-        duration: 5000 
-      });
-    }
-
-    
   }
 
 }
